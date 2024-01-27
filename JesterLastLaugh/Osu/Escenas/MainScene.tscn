@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://df0r70c0kpjcw"]
+
+[ext_resource type="Script" path="res://Osu/Scripts/MainScene.gd" id="1_0mwrj"]
+[ext_resource type="PackedScene" uid="uid://cfmw0mlgvoo06" path="res://Osu/Escenas/Circle.tscn" id="1_66pkm"]
+
+[node name="Osu" type="Node2D"]
+script = ExtResource("1_0mwrj")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Circle" parent="." instance=ExtResource("1_66pkm")]
