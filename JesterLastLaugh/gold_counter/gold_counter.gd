@@ -13,3 +13,4 @@ func _process(delta):
 
 func set_gold(amount: int):
 	label.text = str(amount)
+	

@@ -61,13 +61,18 @@ var shapes = [
 
 func _ready():
 	timer.one_shot = false
-	timer.wait_time = 60.0 / tempo
 	timer.connect("timeout",  _black)
 	
 	index = rng.randi_range(0, len(shapes) - 1)
 
-func _process(delta):
+func _process(_delta):
 	pass
+
+func stop():
+	timer.stop()
+
+func start():
+	timer.start(60.0 / tempo)
 
 func _black():
 	if wait_count > 0:

@@ -1,20 +1,24 @@
 extends Node2D
 
-var play_time = 0
-var mod_time = 0
-var gold_func = null
+var total_play_time: float = 30.0
+var play_time: float = 0.0
+var mod_time: float = 0.0
 
-# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
 func _process(delta):
 	play_time += delta
 	mod_time += delta
 	
-	if fmod(mod_time, 2.0) == 0:
+	if mod_time >= 3.0:
 		mod_time = 0
-		
-		if gold_func:
-			gold_func.call_func(5)
+		get_parent().add_gold(5)
+	
+	if play_time >= total_play_time:
+		$Laud.stop()
+		get_parent().end_game(true)
 
-func set_gold_func(f):
-	gold_func = f
-	print(typeof(f))
+func start():
+	play_time = 0
+	$Laud.start()

@@ -19,7 +19,7 @@ func _ready():
 	area2d.connect("area_exited", _note_exited)
 	label.text = letter
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(action):
 		sprite.texture = string_on
 		timer.start(0.3)
