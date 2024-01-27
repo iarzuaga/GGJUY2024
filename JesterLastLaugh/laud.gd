@@ -4,7 +4,9 @@ var index: int = 0
 var subindex: int = 0
 var shape_index: int = 0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-@export var tempo: float = 120
+@export var wait_between_shapes = 3
+@export var wait_count = 0
+@export var tempo: float = 100
 @onready var timer: Timer = $Timer
 @onready var strings: Array[Node] = [
 	$Laud0,
@@ -12,7 +14,6 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	$Laud2,
 	$Laud3
 ]
-
 var shapes = [
 	[
 		1, 0, 0, 0,
@@ -21,8 +22,40 @@ var shapes = [
 		0, 0, 0, 1,
 	],
 	[
-		0, 0, 1, 1,
 		1, 1, 0, 0,
+		0, 0, 1, 1,
+	],
+	[
+		1, 0, 0, 1,
+		1, 0, 0, 1,
+	],
+	[
+		1, 0, 0, 1,
+		0, 1, 1, 0,
+	],
+	[
+		0, 0, 0, 1,
+		0, 0, 1, 0,
+		0, 1, 0, 0,
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1,
+		0, 0, 1, 0,
+		0, 1, 0, 0,
+		1, 0, 0, 0,
+	],
+	[
+		1, 0, 0, 1,
+		1, 0, 0, 1,
+		1, 0, 0, 1,
+		1, 0, 0, 1,
+		0, 1, 1, 0,
+	],
+	[
+		1, 0, 0, 1,
+		0, 1, 1, 0,
+		1, 0, 0, 1,
 	]
 ]
 
@@ -30,12 +63,18 @@ func _ready():
 	timer.one_shot = false
 	timer.wait_time = 60.0 / tempo
 	timer.connect("timeout",  _black)
+	
+	index = rng.randi_range(0, len(shapes) - 1)
 
 func _process(delta):
 	pass
 
 func _black():
-	var shape = shapes[0]
+	if wait_count > 0:
+		wait_count -= 1
+		return
+	
+	var shape = shapes[index]
 	var start = (len(shape) / 4.0 - subindex - 1) * 4
 	for i in range(start, start + 4):
 		var string_index = i % 4
@@ -46,4 +85,6 @@ func _black():
 	subindex += 1
 	
 	if subindex >= len(shape) / 4:
+		index = rng.randi_range(0, len(shapes) - 1)
+		wait_count = wait_between_shapes
 		subindex = 0

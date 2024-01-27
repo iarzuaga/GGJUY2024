@@ -1,6 +1,7 @@
 extends Node
 
 @export var action = "ui_left"
+@export var letter = "h"
 @onready var sprite = $Sprite2D
 @onready var timer = $Timer
 @onready var area2d = $Area2D
@@ -14,10 +15,10 @@ func _ready():
 	timer.connect("timeout", _reset_texture)
 	area2d.connect("area_entered", _note_entered)
 	area2d.connect("area_exited", _note_exited)
+	label.text = letter
 
 func _process(_delta):
 	if Input.is_action_just_pressed(action):
-		label.set("theme_override_colors/font_color", Color(0.0, 0.0, 0.0))
 		sprite.texture = string_on
 		timer.start(0.3)
 		
@@ -33,7 +34,6 @@ func _note_exited(area):
 
 func _reset_texture():
 	sprite.texture = string_off
-	label.add_theme_color_override("font_color", Color("a6963e"))
 
 func add_note():
 	spawnpoint.spawn_note()
