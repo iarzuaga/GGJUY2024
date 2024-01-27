@@ -19,11 +19,14 @@ position = Vector2(0, 1)
 shape = SubResource("WorldBoundaryShape2D_bu1i5")
 
 [node name="JugglingJester" parent="." instance=ExtResource("2_udrno")]
-position = Vector2(375, 263)
+position = Vector2(253, 253)
 
 [node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(375, 214)
+position = Vector2(370, 90)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(2.3, 2.3)
+
+[node name="JugglingKnife2" parent="." instance=ExtResource("3_cydgv")]
+position = Vector2(254, 19)
