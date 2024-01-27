@@ -10,7 +10,6 @@ func _get_score() -> int:
 
 func _plus_score():
 	score = score + 1
-	print(score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
