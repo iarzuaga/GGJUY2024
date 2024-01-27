@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhd6awnq62qxw"]
+
+[ext_resource type="Script" path="res://FruitNinja/Scripts/fruitNinja.gd" id="1_rvxu5"]
+[ext_resource type="PackedScene" uid="uid://bvon62xgvlwm7" path="res://FruitNinja/Escenas/jester_node.tscn" id="2_55n4e"]
+[ext_resource type="PackedScene" uid="uid://by7v21d4x257c" path="res://FruitNinja/Escenas/objetos_arrojados.tscn" id="3_6e8m4"]
+
+[node name="EscenaFruitNinja" type="Node2D"]
+script = ExtResource("1_rvxu5")
+
+[node name="JesterNode" parent="." instance=ExtResource("2_55n4e")]
+
+[node name="ObjetosArrojados" parent="." instance=ExtResource("3_6e8m4")]
+
+[node name="Timer" type="Timer" parent="."]

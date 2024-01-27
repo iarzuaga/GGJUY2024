@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6gpxshneivir"]
+
+[ext_resource type="Script" path="res://cañoñ.gd" id="1_vxnxc"]
+
+[node name="cañon" type="Node2D"]
+script = ExtResource("1_vxnxc")

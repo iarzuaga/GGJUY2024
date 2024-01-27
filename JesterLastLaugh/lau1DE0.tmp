@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccslox2e8c5ge"]
+
+[ext_resource type="Script" path="res://laud_string.gd" id="1_xysgp"]
+[ext_resource type="Texture2D" uid="uid://cpxhjpf1415se" path="res://string_off.png" id="2_jaxtu"]
+[ext_resource type="Script" path="res://SpawnPoint.gd" id="3_u0kmq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63p56"]
+radius = 6.0
+
+[node name="laud_string" type="Node2D"]
+script = ExtResource("1_xysgp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -21)
+texture = ExtResource("2_jaxtu")
+
+[node name="Area2D" type="Area2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_63p56")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -177)
+script = ExtResource("3_u0kmq")
+
+[node name="Timer" type="Timer" parent="SpawnPoint"]
+autostart = true
