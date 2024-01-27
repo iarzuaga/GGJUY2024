@@ -10,6 +10,8 @@ extends Node
 var string_on = load("res://laudgame/string_on.png")
 var string_off = load("res://laudgame/string_off.png")
 var notes_inside = []
+var play_time = 0
+var mod_time = 0
 
 func _ready():
 	timer.connect("timeout", _reset_texture)

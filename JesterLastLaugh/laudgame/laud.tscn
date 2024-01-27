@@ -17,13 +17,12 @@ action = "laud_1"
 letter = "f"
 
 [node name="Laud2" parent="." instance=ExtResource("1_j32el")]
-position = Vector2(15, 134)
+position = Vector2(15, 135)
 action = "laud_2"
 
 [node name="Laud3" parent="." instance=ExtResource("1_j32el")]
-position = Vector2(46, 134)
+position = Vector2(46, 135)
 action = "laud_3"
 letter = "j"
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
