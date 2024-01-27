@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2d8jdaf5nemg"]
+
+[ext_resource type="Script" path="res://menu/scripts/game_manager.gd" id="1_g8qnk"]
+[ext_resource type="PackedScene" uid="uid://b5bwfxdvu3nut" path="res://gold_counter/gold_counter.tscn" id="2_c6d6v"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_g8qnk")
+
+[node name="GoldCounter" parent="." instance=ExtResource("2_c6d6v")]
+offset_left = 540.979
+offset_top = 361.893
+offset_right = 540.979
+offset_bottom = 361.893

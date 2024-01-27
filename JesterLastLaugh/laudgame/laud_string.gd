@@ -10,6 +10,8 @@ extends Node
 var string_on = load("res://laudgame/string_on.png")
 var string_off = load("res://laudgame/string_off.png")
 var notes_inside = []
+var play_time = 0
+var mod_time = 0
 
 func _ready():
 	timer.connect("timeout", _reset_texture)
@@ -17,7 +19,7 @@ func _ready():
 	area2d.connect("area_exited", _note_exited)
 	label.text = letter
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed(action):
 		sprite.texture = string_on
 		timer.start(0.3)

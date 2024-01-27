@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5bwfxdvu3nut"]
+[gd_scene load_steps=6 format=3 uid="uid://b5bwfxdvu3nut"]
 
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="1_h1t5q"]
+[ext_resource type="Script" path="res://gold_counter/gold_counter.gd" id="1_vl1qr"]
 [ext_resource type="Texture2D" uid="uid://0ivkxsqsjukh" path="res://gold_counter/assets/gold_counter.png" id="1_yi5l7"]
 [ext_resource type="Texture2D" uid="uid://bhocf7lr1mbgj" path="res://gold_counter/assets/gold.png" id="2_7gh68"]
 
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vl1qr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -41,6 +43,7 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 21.0
 offset_top = 10.0
 offset_right = 57.0

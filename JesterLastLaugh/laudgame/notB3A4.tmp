@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhup1m6xdqkyl"]
+[gd_scene load_steps=7 format=3 uid="uid://bhup1m6xdqkyl"]
 
 [ext_resource type="Script" path="res://laudgame/note_game.gd" id="1_rgh1n"]
 [ext_resource type="PackedScene" uid="uid://cp1sxbjk1v7g7" path="res://laudgame/laud.tscn" id="1_sca5j"]
 [ext_resource type="Texture2D" uid="uid://cdc85qokod4bq" path="res://laudgame/background.png" id="1_x7t1y"]
 [ext_resource type="Texture2D" uid="uid://cg471nh848cpj" path="res://laudgame/king.png" id="2_78wir"]
+[ext_resource type="Texture2D" uid="uid://da1aij2n4bjrt" path="res://mask_sad.png" id="3_bh00o"]
+[ext_resource type="PackedScene" uid="uid://b5bwfxdvu3nut" path="res://gold_counter/gold_counter.tscn" id="3_ppj7x"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rgh1n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-248, -126)
 anchor_mode = 0
 zoom = Vector2(2.25, 2.25)
 
@@ -23,5 +26,23 @@ position = Vector2(131, 174)
 scale = Vector2(0.375221, 0.375221)
 texture = ExtResource("2_78wir")
 
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GoldCounter" parent="Camera2D/Control" instance=ExtResource("3_ppj7x")]
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 459.0
+offset_top = 232.0
+offset_right = 506.0
+offset_bottom = 284.0
+texture = ExtResource("3_bh00o")
+
 [node name="Laud" parent="." instance=ExtResource("1_sca5j")]
-position = Vector2(329, 141)
+position = Vector2(81, 15)
