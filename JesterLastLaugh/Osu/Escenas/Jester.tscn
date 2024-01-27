@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3w6g64na8v7p"]
+
+[ext_resource type="Texture2D" uid="uid://kluamwggc85m" path="res://Osu/Assets/asd.png" id="1_t5ecl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8nrb"]
+atlas = ExtResource("1_t5ecl")
+region = Rect2(0, 0, 116, 143)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wq5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8nrb")
+}],
+"loop": false,
+"name": &"Jester",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unakn"]
+size = Vector2(11.0593, 21.7391)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(808, 538)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-439, -282)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_2wq5h")
+animation = &"Jester"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-438.88, -282)
+rotation = -3.14159
+scale = Vector2(3.776, -2.3)
+shape = SubResource("RectangleShape2D_unakn")
