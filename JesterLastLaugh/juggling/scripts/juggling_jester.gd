@@ -29,3 +29,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 
 	move_and_slide()
+
+func _process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print("I collided with ", collision.get_collider().name)
+		

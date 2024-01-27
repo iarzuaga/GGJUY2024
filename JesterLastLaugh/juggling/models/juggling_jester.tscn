@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci0baj3fubwly"]
+
+[ext_resource type="Script" path="res://juggling/scripts/juggling_jester.gd" id="1_o4otc"]
+[ext_resource type="Texture2D" uid="uid://r2bjnnoyvvcy" path="res://juggling/assets/jester.png" id="2_ablsw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lnkb"]
+atlas = ExtResource("2_ablsw")
+region = Rect2(116, 0, 116, 143)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njmu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lnkb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41va8"]
+size = Vector2(15.9125, 4.21837)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js7cn"]
+size = Vector2(116, 20)
+
+[node name="JugglingJester" type="CharacterBody2D"]
+script = ExtResource("1_o4otc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_njmu7")
+
+[node name="RegularThrow" type="CollisionShape2D" parent="."]
+position = Vector2(0.0370202, -18)
+scale = Vector2(7.28519, 8.47512)
+shape = SubResource("RectangleShape2D_41va8")
+
+[node name="GoodThrow" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_js7cn")
