@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci0baj3fubwly"]
+[gd_scene load_steps=8 format=3 uid="uid://ci0baj3fubwly"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling_jester.gd" id="1_o4otc"]
 [ext_resource type="Texture2D" uid="uid://r2bjnnoyvvcy" path="res://juggling/assets/jester.png" id="2_ablsw"]
@@ -18,23 +18,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmml7"]
+size = Vector2(50, 1.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41va8"]
-size = Vector2(15.9125, 4.21837)
+size = Vector2(6.86324, 1.28133)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js7cn"]
-size = Vector2(116, 20)
+size = Vector2(50, 3.625)
 
 [node name="JugglingJester" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_o4otc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.435, 0.393)
 sprite_frames = SubResource("SpriteFrames_njmu7")
 
-[node name="RegularThrow" type="CollisionShape2D" parent="."]
-position = Vector2(0.0370202, -18)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_dmml7")
+
+[node name="Regular" type="Area2D" parent="."]
+input_pickable = false
+
+[node name="RegularThrow" type="CollisionShape2D" parent="Regular"]
+position = Vector2(7.17465e-43, -8.42972)
 scale = Vector2(7.28519, 8.47512)
 shape = SubResource("RectangleShape2D_41va8")
 
-[node name="GoodThrow" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+[node name="Good" type="Area2D" parent="."]
+input_pickable = false
+
+[node name="GoodThrow" type="CollisionShape2D" parent="Good"]
+position = Vector2(0, -1.1875)
 shape = SubResource("RectangleShape2D_js7cn")
+
+[connection signal="area_shape_exited" from="Regular" to="." method="_on_regular_area_shape_exited"]
+[connection signal="body_entered" from="Regular" to="." method="_on_regular_body_entered"]
+[connection signal="body_exited" from="Regular" to="." method="_on_regular_body_exited"]

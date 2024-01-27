@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://juggling/scripts/juggling_knife.gd" id="1_yf55k"]
 [ext_resource type="Texture2D" uid="uid://bnt3pn308nsvm" path="res://juggling/assets/knife.png" id="2_78r0r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f65py"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yima3"]
 atlas = ExtResource("2_78r0r")
-region = Rect2(240, 0, 60, 76)
+region = Rect2(120, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4vo"]
 atlas = ExtResource("2_78r0r")
@@ -43,7 +43,7 @@ region = Rect2(180, 0, 60, 76)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f65py")
+"texture": SubResource("AtlasTexture_yima3")
 }],
 "loop": true,
 "name": &"default",
@@ -80,17 +80,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ask46"]
-radius = 7.33333
-height = 20.0
+radius = 1.90752
+height = 12.4925
 
-[node name="JugglingKnife" type="Area2D"]
+[node name="JugglingKnife" type="RigidBody2D"]
+mass = 0.35
+gravity_scale = 0.2
 script = ExtResource("1_yf55k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.00065, 1)
+position = Vector2(3.8147e-06, 1.90735e-06)
+scale = Vector2(0.316992, 0.236842)
 sprite_frames = SubResource("SpriteFrames_v4bu2")
 frame_progress = 0.42515
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="KnifeCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.38419e-07)
 scale = Vector2(3.14544, 1.12067)
 shape = SubResource("CapsuleShape2D_ask46")

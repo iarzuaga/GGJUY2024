@@ -1,15 +1,20 @@
-extends Area2D
+extends RigidBody2D
 
-const jump_velocity = -800.0
+const jump_velocity = -50.0
 var velocity = Vector2(0,0)
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var _animated_sprite = $AnimatedSprite2D
 
 func _ready():
-	speed = Vector2(0, jump_velocity);
+	velocity = Vector2(0, jump_velocity);
+
+func throw(force):
+	sleeping = true
+	apply_central_impulse(Vector2(0, jump_velocity));
+	_animated_sprite.play("spin")
+	
 
 func _physics_process(delta):
-	# Add the gravity.
-	velocity.y += gravity * delta
-
-func _throw(force):
-	speed = Vector2(0, jump_velocity);
+	var collision_info = move_and_collide(Vector2(0,0))
+	if collision_info:
+		_animated_sprite.play("default")
