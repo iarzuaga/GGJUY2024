@@ -5,6 +5,9 @@ var score: int
 func _ready():
 	score = 0
 
+func _get_score() -> int:
+	return self.score
+
 func _plus_score():
 	score = score + 1
 	print(score)

@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var timer:Timer=$Timer
 @onready var packCircle:PackedScene = preload("res://Osu/Escenas/Circle.tscn")
-@onready var Score = $ScoreCount
 @onready var Jester = $Jester
+@onready var Score = $ScoreCount
 @onready var cordinate_top_left = $Cordinate_top_left
 @onready var cordinate_top_right = $Cordinate_top_right
 @onready var cordinate_botton_left = $Cordinate_botton_left
@@ -33,4 +33,5 @@ func _spawn_circles():
 	Circle.position.y = _random_num_y_position
 	add_child(Circle)
 
-
+func _score_count():
+	var actual_score: int = Score._get_score()
