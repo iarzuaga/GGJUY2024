@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhup1m6xdqkyl"]
+
+[ext_resource type="PackedScene" uid="uid://cp1sxbjk1v7g7" path="res://laudgame/laud.tscn" id="1_sca5j"]
+[ext_resource type="Texture2D" uid="uid://cdc85qokod4bq" path="res://laudgame/background.png" id="1_x7t1y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 14)
+zoom = Vector2(2.25, 2.25)
+
+[node name="Background" type="Sprite2D" parent="Camera2D"]
+texture_filter = 1
+position = Vector2(0.999969, 0)
+scale = Vector2(1.33333, 1.33333)
+texture = ExtResource("1_x7t1y")
+
+[node name="Laud" parent="." instance=ExtResource("1_sca5j")]
