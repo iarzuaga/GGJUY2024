@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhd6awnq62qxw"]
+
+[ext_resource type="Script" path="res://FruitNinja/Escenas/fruitNinja.gd" id="1_3p60c"]
+[ext_resource type="Script" path="res://FruitNinja/Scripts/JesterNode.gd" id="2_sb2lj"]
+[ext_resource type="Texture2D" uid="uid://bwgdtt2egrngq" path="res://FruitNinja/Assets/icon.svg" id="3_jesgx"]
+[ext_resource type="Script" path="res://FruitNinja/Scripts/ObjetosArrojados.gd" id="4_d1lol"]
+[ext_resource type="Texture2D" uid="uid://bq6pblrloeuti" path="res://FruitNinja/Assets/platos.png" id="5_a1k15"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3rpq"]
+atlas = ExtResource("5_a1k15")
+region = Rect2(44, 54, 22, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptyj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3rpq")
+}],
+"loop": true,
+"name": &"platoFijo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a1k15")
+}],
+"loop": true,
+"name": &"platoRompiendose",
+"speed": 5.0
+}]
+
+[node name="EscenaFruitNinja" type="Node2D"]
+script = ExtResource("1_3p60c")
+
+[node name="JesterNode" type="Node2D" parent="."]
+script = ExtResource("2_sb2lj")
+posicionInicial = Vector2(500, 200)
+
+[node name="jesterSprite" type="Sprite2D" parent="JesterNode"]
+texture = ExtResource("3_jesgx")
+region_rect = Rect2(31.5073, 34.2967, 74.1747, 62.9785)
+
+[node name="ObjetosArrojados" type="Node2D" parent="."]
+script = ExtResource("4_d1lol")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="ObjetosArrojados"]
+texture_filter = 1
+position = Vector2(194, 95)
+sprite_frames = SubResource("SpriteFrames_ptyj2")
+animation = &"platoFijo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetosArrojados"]
