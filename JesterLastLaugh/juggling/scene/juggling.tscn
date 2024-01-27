@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://blk8uh6kvjey7"]
+[gd_scene load_steps=5 format=3 uid="uid://blk8uh6kvjey7"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling.gd" id="1_5wkml"]
 [ext_resource type="PackedScene" uid="uid://ci0baj3fubwly" path="res://juggling/models/juggling_jester.tscn" id="2_udrno"]
+[ext_resource type="PackedScene" uid="uid://b4wr42uqlvyhq" path="res://juggling/models/juggling_knife.tscn" id="3_cydgv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bu1i5"]
 
 [node name="Juggling" type="Node"]
 script = ExtResource("1_5wkml")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(575, 649)
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(373, 281)
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, 1)
 shape = SubResource("WorldBoundaryShape2D_bu1i5")
 
 [node name="JugglingJester" parent="." instance=ExtResource("2_udrno")]
-position = Vector2(575, 535)
+position = Vector2(375, 263)
+
+[node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
+position = Vector2(375, 214)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2.3, 2.3)
