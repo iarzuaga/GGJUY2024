@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci0baj3fubwly"]
+
+[ext_resource type="Script" path="res://juggling_jester.gd" id="1_8ajy1"]
+[ext_resource type="Texture2D" uid="uid://r2bjnnoyvvcy" path="res://juggling/assets/jester.png" id="1_yd27r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lnkb"]
+atlas = ExtResource("1_yd27r")
+region = Rect2(116, 0, 116, 143)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njmu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lnkb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_piuv6"]
+radius = 10.2162
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_8ajy1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_njmu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.99999)
+scale = Vector2(7.28519, 8.47512)
+shape = SubResource("CircleShape2D_piuv6")
