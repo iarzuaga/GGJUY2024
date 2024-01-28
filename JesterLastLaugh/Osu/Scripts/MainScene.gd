@@ -17,7 +17,6 @@ var actual_score: int
 var difficulty_game: int
 var time_spawn_circle : float
 var time_kill_circle : float
-var margin_one: int
 var margin_two: int
 var circle_total_win : int
 var score_per_circle: int
@@ -25,11 +24,12 @@ var circle_number: int
 var circle_died: int
 var pocketed_circles: int
 
+
+
 func start():
 	timer.connect("timeout",_spawn_circles)
 	timer.wait_time = time_spawn_circle
 	timer.start()
-	pass
 
 func _ready():
 	menu_song.play()
@@ -46,19 +46,17 @@ func _ready():
 	add_child(score)
 	score.score_per_circle = score_per_circle
 	
-
 func _spawn_circles():
-	_control_win_defeat()
-	var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
-	var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
-	var Circle: CharacterBody2D = packCircle.instantiate()
-	Circle.position.x = _random_num_x_position
-	Circle.position.y = _random_num_y_position
-	Circle.time_kill_circle = time_kill_circle
-	circle_number = circle_number + 1
-	add_child(Circle)
+		_control_win_defeat()
+		var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
+		var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
+		var Circle: CharacterBody2D = packCircle.instantiate()
+		Circle.position.x = _random_num_x_position
+		Circle.position.y = _random_num_y_position
+		Circle.time_kill_circle = time_kill_circle
+		circle_number = circle_number + 1
+		add_child(Circle)
 		
-
 func _score_count() -> int:
 	return score._get_score()
 
@@ -97,15 +95,11 @@ func _set_difficulty_times(difficulty_game : int):
 			score_per_circle = 7
 
 func _control_win_defeat():
-	print(circle_died)
-	print(circle_total_win)
-	print(pocketed_circles)
-	print(pocketed_circles + circle_died)
 	if pocketed_circles + circle_died == circle_total_win and circle_died < margin_two + 1:
-		get_tree().paused = true
+		timer.stop()
 		get_parent().end_game(true)
 	elif circle_died >= margin_two + 1:
-		get_tree().paused = true
+		timer.stop()
 		get_parent().end_game(false)
 
 func _count_died_circles():
