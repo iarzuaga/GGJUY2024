@@ -40,36 +40,36 @@ func _ready():
 	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
-	set_difficulty(difficulty_game)
-	circle_number = 0
+	pocketed_circles = 0
+	circle_number = 1
+	circle_died = 0
 	add_child(score)
 	score.score_per_circle = score_per_circle
 	
 
 func _spawn_circles():
-	if circle_number < circle_total_win:
-		_control_win_defeat()
-		var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
-		var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
-		var Circle: CharacterBody2D = packCircle.instantiate()
-		Circle.position.x = _random_num_x_position
-		Circle.position.y = _random_num_y_position
-		Circle.time_kill_circle = time_kill_circle
-		circle_number = circle_number + 1
-		add_child(Circle)
+	_control_win_defeat()
+	var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
+	var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
+	var Circle: CharacterBody2D = packCircle.instantiate()
+	Circle.position.x = _random_num_x_position
+	Circle.position.y = _random_num_y_position
+	Circle.time_kill_circle = time_kill_circle
+	circle_number = circle_number + 1
+	add_child(Circle)
 		
 
 func _score_count() -> int:
 	return score._get_score()
 
 func _add_gold():
-	get_parent().add_gold(round(_score_count() / 2))
+	get_parent().add_gold(score_per_circle)
 
 func set_difficulty(difficulty : int):
 	difficulty_game = difficulty
-	_set_difficulty_times()
+	_set_difficulty_times(difficulty_game)
 
-func _set_difficulty_times():
+func _set_difficulty_times(difficulty_game : int):
 	match (difficulty_game):
 		0:
 			time_spawn_circle = 1.7
@@ -97,10 +97,14 @@ func _set_difficulty_times():
 			score_per_circle = 7
 
 func _control_win_defeat():
-	if pocketed_circles + circle_died == circle_total_win and circle_died <= margin_two + 1:
+	print(circle_died)
+	print(circle_total_win)
+	print(pocketed_circles)
+	print(pocketed_circles + circle_died)
+	if pocketed_circles + circle_died == circle_total_win and circle_died < margin_two + 1:
 		get_tree().paused = true
 		get_parent().end_game(true)
-	elif circle_died == margin_two + 1:
+	elif circle_died >= margin_two + 1:
 		get_tree().paused = true
 		get_parent().end_game(false)
 
