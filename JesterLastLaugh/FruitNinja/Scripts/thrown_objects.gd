@@ -1,9 +1,12 @@
 extends RigidBody2D
 
 @onready var animation = $AnimationPlayer
+var sound_array:Array[Node] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	sound_array.append($AudioStreamPlayer_1)
+	sound_array.append($AudioStreamPlayer_2)
+	sound_array.append($AudioStreamPlayer_3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,6 +21,7 @@ func object_type():
 	
 func destroy():
 	#Detengo objeto
+	sound_array[randi_range (0,2)].play()
 	set_deferred("freeze", true)
 	animation.play("break")
 	
@@ -28,3 +32,7 @@ func destroy():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "break":
 		queue_free()
+
+func _on_body_entered(body):
+	print("COLISION EN PLATO")
+	print(body)
