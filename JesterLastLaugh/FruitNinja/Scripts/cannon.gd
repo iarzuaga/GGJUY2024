@@ -3,8 +3,8 @@ extends Node2D
 #var initial_position:Vector2
 var direction:Vector2
 var dir_modifier:Vector2
-var force_min = 600
-var force_max = 800
+var force_min = 700
+var force_max = 850
 var angle_min=4*PI/20
 var angle_max=8*PI/20
 @onready var prefab_throwable:PackedScene=preload("res://FruitNinja/Escenas/thrown_objects.tscn")

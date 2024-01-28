@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhd6awnq62qxw"]
+[gd_scene load_steps=8 format=3 uid="uid://bhd6awnq62qxw"]
 
 [ext_resource type="Script" path="res://FruitNinja/Scripts/fruitNinja.gd" id="1_rvxu5"]
 [ext_resource type="PackedScene" uid="uid://bvon62xgvlwm7" path="res://FruitNinja/Escenas/jester_node.tscn" id="2_55n4e"]
 [ext_resource type="PackedScene" uid="uid://6gpxshneivir" path="res://FruitNinja/Escenas/cannon.tscn" id="3_0erdv"]
+[ext_resource type="AudioStream" uid="uid://bb4524i0qxcg8" path="res://FruitNinja/Assets/sounds/musica.mp3" id="4_rrq2f"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4qy2c"]
 a = Vector2(-397, -8)
@@ -59,3 +60,12 @@ collision_mask = 524289
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallL"]
 position = Vector2(217, 146)
 shape = SubResource("SegmentShape2D_djmk5")
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="initial_wait_time" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rrq2f")
+volume_db = -10.667
+autoplay = true
