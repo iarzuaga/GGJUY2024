@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ci0baj3fubwly"]
+[gd_scene load_steps=17 format=3 uid="uid://ci0baj3fubwly"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling_jester.gd" id="1_o4otc"]
 [ext_resource type="Texture2D" uid="uid://cj67wpomn8y7e" path="res://juggling/assets/jester_full.png" id="2_6bgtn"]
 [ext_resource type="Texture2D" uid="uid://dukny3im3unom" path="res://juggling/assets/jester_victory.png" id="3_kek8a"]
 [ext_resource type="Texture2D" uid="uid://bfjwyeif5lv3q" path="res://juggling/assets/jester_victory 2.png" id="4_wnmi4"]
+[ext_resource type="AudioStream" uid="uid://bpqjrcd4yaysr" path="res://juggling/assets/celtic-7136.mp3" id="5_75h7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bt00"]
 atlas = ExtResource("2_6bgtn")
@@ -111,6 +112,12 @@ input_pickable = false
 [node name="GoodThrow" type="CollisionShape2D" parent="Good"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_js7cn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_75h7f")
+volume_db = -11.31
+autoplay = true
+stream_paused = true
 
 [connection signal="body_entered" from="Regular" to="." method="_on_regular_body_entered"]
 [connection signal="body_exited" from="Regular" to="." method="_on_regular_body_exited"]

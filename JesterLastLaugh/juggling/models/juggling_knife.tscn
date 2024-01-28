@@ -163,7 +163,6 @@ position = Vector2(3.8147e-06, 1.90735e-06)
 scale = Vector2(0.435, 0.325)
 sprite_frames = SubResource("SpriteFrames_v4bu2")
 animation = &"shining"
-frame_progress = 0.596111
 
 [node name="KnifeCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.38419e-07)
