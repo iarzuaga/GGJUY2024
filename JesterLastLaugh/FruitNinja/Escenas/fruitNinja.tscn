@@ -20,7 +20,7 @@ b = Vector2(-2, -333)
 script = ExtResource("1_rvxu5")
 
 [node name="JesterNode" parent="." instance=ExtResource("2_55n4e")]
-position = Vector2(283, 240)
+position = Vector2(282, 238)
 scale = Vector2(0.6, 0.6)
 
 [node name="Timer" type="Timer" parent="."]
