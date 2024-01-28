@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3sdr2drsx3hy"
-path="res://.godot/imported/note.png-0359210675f7fb1559449d7744818400.ctex"
+uid="uid://b4upbdr3fq45y"
+path="res://.godot/imported/note_fail.png-4586eb29728b0303fb02dfc5dca3a2c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://laudgame/note.png"
-dest_files=["res://.godot/imported/note.png-0359210675f7fb1559449d7744818400.ctex"]
+source_file="res://laudgame/assets/textures/note_fail.png"
+dest_files=["res://.godot/imported/note_fail.png-4586eb29728b0303fb02dfc5dca3a2c5.ctex"]
 
 [params]
 

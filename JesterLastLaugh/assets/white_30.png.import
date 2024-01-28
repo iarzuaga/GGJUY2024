@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxhjpf1415se"
-path="res://.godot/imported/string_off.png-a39fbb7d485cc92d8f35412249c537af.ctex"
+uid="uid://bj752yikbbkjp"
+path="res://.godot/imported/white_30.png-bb76af79248004f6b97d2a3b9b461377.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://laudgame/string_off.png"
-dest_files=["res://.godot/imported/string_off.png-a39fbb7d485cc92d8f35412249c537af.ctex"]
+source_file="res://assets/white_30.png"
+dest_files=["res://.godot/imported/white_30.png-bb76af79248004f6b97d2a3b9b461377.ctex"]
 
 [params]
 

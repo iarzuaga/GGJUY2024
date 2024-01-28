@@ -14,7 +14,6 @@ var timer_to_start: float = 0
 	preload("res://laudgame/note_game.tscn")
 ]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	gold_counter.set_gold(0)
 	load_game(0)
@@ -30,7 +29,6 @@ func load_game(index: int):
 	current_game_node = node
 	timer_to_start = time_to_start
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
 	print("asdsadd")
 	timer_to_start -= delta

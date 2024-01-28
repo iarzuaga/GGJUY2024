@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1o3ysvrvu0li"
-path="res://.godot/imported/chester.png-0f80cdfa98950005c2d69ae37cd1f2fd.ctex"
+uid="uid://cpxhjpf1415se"
+path="res://.godot/imported/string_off.png-8af9ec7d8721b352ccf82ff80f92d749.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://laudgame/chester.png"
-dest_files=["res://.godot/imported/chester.png-0f80cdfa98950005c2d69ae37cd1f2fd.ctex"]
+source_file="res://laudgame/assets/textures/string_off.png"
+dest_files=["res://.godot/imported/string_off.png-8af9ec7d8721b352ccf82ff80f92d749.ctex"]
 
 [params]
 
