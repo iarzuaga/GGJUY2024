@@ -41,13 +41,13 @@ anchor_mode = 0
 zoom = Vector2(2.3, 2.3)
 
 [node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(398, 120)
+position = Vector2(404, 130)
 
 [node name="JugglingKnife2" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(315, 155)
+position = Vector2(317, 62)
 
 [node name="JugglingKnife3" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(360, 90)
+position = Vector2(361, 100)
 
 [node name="JugglingKnife4" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(437, 162)
+position = Vector2(442, 160)

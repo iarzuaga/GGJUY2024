@@ -47,11 +47,11 @@ func _on_regular_body_entered(body):
 	if body.get_name().contains("Knife"):
 		inside_body = true
 		knife = body
-		knife_force = 8
+		knife_force = 4
 
 func _on_good_body_entered(body):
 	if body.get_name().contains("Knife"):
 		inside_body = true
 		knife = body
-		knife_force = 12
+		knife_force = 6
 
