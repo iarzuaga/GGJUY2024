@@ -10,6 +10,8 @@ var timer_to_start: float = 0
 @onready var gold_counter = $Camera2D/Control/GoldCounter
 @onready var king = $Camera2D/King
 @onready var pause_ui = $PauseBg
+@onready var fade = $ScreenFade
+@onready var timer = $Timer
 @onready var games = [
 	preload("res://laudgame/note_game.tscn")
 ]
@@ -19,6 +21,9 @@ func _ready():
 	load_game(0)
 	
 func load_game(index: int):
+	if current_game_node:
+		remove_child(current_game_node)
+	
 	is_game_ended = false
 	is_game_winned = false
 	is_paused = true
@@ -30,7 +35,6 @@ func load_game(index: int):
 	timer_to_start = time_to_start
 
 func _process(delta: float):
-	print("asdsadd")
 	timer_to_start -= delta
 	
 	$PauseBg/PauseMenu/Label.text = "Game starts in " + str(floorf(timer_to_start + 1))
@@ -51,4 +55,21 @@ func end_game(winned: bool):
 	var state: int = -1
 	if is_game_winned:
 		state = 1
+	
 	king.set_state(state)
+	
+	call_in(start_change_scene, 3.0)
+
+func start_change_scene():
+	fade.fade()
+	call_in(change_scene, 1.0)
+	
+func change_scene():
+	load_game(1)
+	fade.unfade()
+	
+func call_in(f, time_in_sec: float):
+	timer.connect("timeout", f)
+	timer.one_shot = true
+	timer.wait_time = time_in_sec
+	timer.start(0)

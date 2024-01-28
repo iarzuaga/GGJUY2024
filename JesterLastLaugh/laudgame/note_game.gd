@@ -1,14 +1,18 @@
 extends Node2D
 
-var total_play_time: float = 30.0
+var total_play_time: float = 1.0
 var play_time: float = 0.0
 var mod_time: float = 0.0
+var is_playing: bool = false
 @onready var parent = get_parent()
 
 func _ready():
 	pass
 
 func _process(delta):
+	if not is_playing:
+		return
+	
 	play_time += delta
 	mod_time += delta
 	
@@ -19,8 +23,10 @@ func _process(delta):
 	
 	if play_time >= total_play_time:
 		$Laud.stop()
+		is_playing = false
 		get_parent().end_game(true)
 
 func start():
 	play_time = 0
+	is_playing = true
 	$Laud.start()
