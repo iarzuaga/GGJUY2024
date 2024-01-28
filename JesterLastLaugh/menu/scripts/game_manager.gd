@@ -19,7 +19,7 @@ var timer_to_start: float = 0
 @onready var games = [
 	preload("res://laudgame/note_game.tscn"),
 	preload("res://juggling/scene/juggling.tscn"),
-	#preload("res://FruitNinja/Escenas/fruitNinja.tscn"),
+	preload("res://FruitNinja/Escenas/fruitNinja.tscn"),
 	preload("res://Osu/Escenas/MainScene.tscn"),
 ]
 var played = []

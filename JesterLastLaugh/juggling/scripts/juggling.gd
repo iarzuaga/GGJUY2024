@@ -2,7 +2,7 @@ extends Node
 @onready var jester_knife = preload("res://juggling/models/juggling_knife.tscn")
 var difficulty = 2
 var burrowed_knifes = 0
-var total_play_time: float = 30.0
+var total_play_time: float = 20.0
 var play_time: float = 0.0
 var finished = false
 
