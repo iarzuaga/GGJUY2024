@@ -37,21 +37,30 @@ func _process(delta):
 		knife.throw(knife_force)
 
 func _on_regular_body_exited(body):
-	if body.get_name().contains("Knife"): inside_body = false
+	if body.get_name().contains("Knife"): 
+		inside_body = false
+		knife.glow(false)
 	
 func _on_good_body_exited(body):
-	if body.get_name().contains("Knife"): inside_body = false
+	if body.get_name().contains("Knife"):
+		inside_body = false
+		knife.glow(false)
 
 
 func _on_regular_body_entered(body):
 	if body.get_name().contains("Knife"):
 		inside_body = true
 		knife = body
-		knife_force = 4
+		knife_force = 2
+		knife.glow(true)
 
 func _on_good_body_entered(body):
 	if body.get_name().contains("Knife"):
 		inside_body = true
 		knife = body
-		knife_force = 6
+		knife_force = 3
+		knife.glow(true)
 
+func victory():
+	$AnimatedSprite2D.flip_h = false
+	$AnimatedSprite2D.play("victory")
