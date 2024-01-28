@@ -65,9 +65,6 @@ func _ready():
 	
 	index = rng.randi_range(0, len(shapes) - 1)
 
-func _process(_delta):
-	pass
-
 func stop():
 	timer.stop()
 
@@ -93,3 +90,7 @@ func _black():
 		index = rng.randi_range(0, len(shapes) - 1)
 		wait_count = wait_between_shapes
 		subindex = 0
+
+func set_speed(speed: float):
+	for s in strings:
+		s.note_speed = speed

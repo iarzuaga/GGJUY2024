@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="JesterLastLaugh"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://menu/scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [input]
 

@@ -1,5 +1,6 @@
 extends Node
 
+@export var note_speed: float = 100.0
 @export var action = "ui_left"
 @export var letter = "h"
 @export var sound: String = "res://laudgame/assets/sounds/Note_1.wav"
@@ -52,4 +53,4 @@ func _reset_texture():
 	sprite.texture = string_off
 
 func add_note():
-	spawnpoint.spawn_note()
+	spawnpoint.spawn_note(note_speed)

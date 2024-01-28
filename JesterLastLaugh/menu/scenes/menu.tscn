@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://blbilrwl3cehn"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_yyrxh"]
+[ext_resource type="Script" path="res://menu/scripts/menu.gd" id="1_yyrxh"]
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="2_3u5as"]
-[ext_resource type="Texture2D" uid="uid://d2f7mh6cugnwp" path="res://menu/menu_bk.png" id="2_qn20f"]
+[ext_resource type="Texture2D" uid="uid://d2f7mh6cugnwp" path="res://menu/assets/menu_bk.png" id="2_qn20f"]
 
 [sub_resource type="Theme" id="Theme_83m73"]
 default_font = ExtResource("2_3u5as")
