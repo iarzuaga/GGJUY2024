@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6gpxshneivir"]
+
+[ext_resource type="Script" path="res://FruitNinja/Scripts/cannon.gd" id="1_lk1ac"]
+
+[node name="cannon" type="Node2D"]
+script = ExtResource("1_lk1ac")
