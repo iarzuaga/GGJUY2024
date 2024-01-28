@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@export var speed = 400
-const JUMP_VELOCITY = -100.0
+@export var final_speed = 250
+var speed = 30
 var paused = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = move_toward(velocity.x, final_speed*direction, speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	if velocity.x != 0:
