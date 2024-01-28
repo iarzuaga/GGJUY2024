@@ -33,9 +33,9 @@ func _ready():
 func play_game():
 	var rng = RandomNumberGenerator.new()
 	
-	index = rng.randi_range(0, len(games) - 1)
+	index = rng.randi_range(0, len(games))
 	while index in played:
-		index = rng.randi_range(0, len(games) - 1)
+		index = rng.randi_range(0, len(games))
 	
 	played.append(index)
 	
