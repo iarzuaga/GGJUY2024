@@ -5,10 +5,10 @@ var cannon_array:Array[Node] = []
 @onready var cannon_timer:Timer=$Timer
 @onready var game_timer:Timer=$GameTimer
 @onready var wait_timer:Timer=$initial_wait_time
-var game_time = 30
+var game_time = 20
 var layers_floor:Array[int] = [3]
 var layers_dish:Array[int] = [2]
-
+var dishes_to_win = 9
 var broken_dishes = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -64,7 +64,7 @@ func some_element_in_A_is_in_B(A: Array, B: Array) -> bool:
 func game_timeout():
 	cannon_timer.stop()
 	game_timer.stop()
-	if broken_dishes >= 15:
+	if broken_dishes >= dishes_to_win:
 		get_parent().end_game(true)
 	else:
 		get_parent().end_game(false)
