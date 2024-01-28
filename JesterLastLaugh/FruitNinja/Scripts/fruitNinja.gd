@@ -1,36 +1,22 @@
 extends Node2D
 
-var cadenciaPlatosEnSegundos = 3
-var tiempoEntrePlatos = 0
-var cañonIzq:Node
-var cañoñDer:Node
-@onready var cañonPrefab:PackedScene=preload("res://FruitNinja/Escenas/cañon.tscn")
-@onready var unPlato:PackedScene=preload("res://FruitNinja/Escenas/objetos_arrojados.tscn")
+var seconds_cadence = 3
+var cannon_array:Array[Node] = []
 @onready var timer:Timer=$Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.connect("timeout",disparar)
-	timer.start()
-	timer.wait_time = cadenciaPlatosEnSegundos
-	cañonIzq = cañonPrefab.instantiate()
-	#cañonIzq.set_variables(new Vector2(1,1))
-	cañoñDer = cañonPrefab.instantiate()
+	timer.connect("timeout",tell_cannon_to_shot)
+	timer.wait_time = seconds_cadence
 
+	cannon_array.append($cannon_r)
+	cannon_array.append($cannon_l)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	tiempoEntrePlatos += delta
-	if tiempoEntrePlatos > cadenciaPlatosEnSegundos:
-		print("Tiro Plato")
-		tiempoEntrePlatos = 0
+	pass
 		
-func disparar():
-	var algo:Node = unPlato.instantiate()
-	add_child(algo)
-	print("disparo")
-
-#func _create_cañon(posIni:Vector2)
-#   var enemy = load("res://FruitNinja/Escenas/cañon.tscn")
-#   enemy.instantiate()
-#	   enemy.set_variables(my_enemy_object)
-#   add_child(enemy)
+func tell_cannon_to_shot():
+	#Disparo random del cañoñ 1 o 2
+	#cannon_array[randi_range (0,1)].shot_projectile()
+	cannon_array[1].shot_projectile()

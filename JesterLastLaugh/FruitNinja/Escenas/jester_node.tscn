@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvon62xgvlwm7"]
 
 [ext_resource type="Script" path="res://FruitNinja/Scripts/JesterNode.gd" id="1_k1kif"]
-[ext_resource type="Texture2D" uid="uid://bwgdtt2egrngq" path="res://icon.svg" id="2_s3sbe"]
+[ext_resource type="Texture2D" uid="uid://bwgdtt2egrngq" path="res://icon.svg" id="2_06xn3"]
 
 [node name="JesterNode" type="Node2D"]
 script = ExtResource("1_k1kif")
-posicionInicial = Vector2(500, 200)
 
 [node name="jesterSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_s3sbe")
+texture = ExtResource("2_06xn3")
 region_rect = Rect2(31.5073, 34.2967, 74.1747, 62.9785)
