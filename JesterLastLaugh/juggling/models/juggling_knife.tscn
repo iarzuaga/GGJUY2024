@@ -80,8 +80,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ask46"]
-radius = 1.90752
-height = 12.4925
+radius = 22.9885
+height = 129.032
 
 [node name="JugglingKnife" type="RigidBody2D"]
 mass = 0.35
@@ -90,11 +90,11 @@ script = ExtResource("1_yf55k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.8147e-06, 1.90735e-06)
-scale = Vector2(0.316992, 0.236842)
+scale = Vector2(0.435, 0.325)
 sprite_frames = SubResource("SpriteFrames_v4bu2")
 frame_progress = 0.42515
 
 [node name="KnifeCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.38419e-07)
-scale = Vector2(3.14544, 1.12067)
+scale = Vector2(0.435, 0.155)
 shape = SubResource("CapsuleShape2D_ask46")

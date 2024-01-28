@@ -25,7 +25,7 @@ size = Vector2(50, 1.5)
 size = Vector2(6.86324, 1.28133)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js7cn"]
-size = Vector2(50, 3.625)
+size = Vector2(50, 7)
 
 [node name="JugglingJester" type="CharacterBody2D"]
 collision_layer = 0
@@ -53,9 +53,10 @@ shape = SubResource("RectangleShape2D_41va8")
 input_pickable = false
 
 [node name="GoodThrow" type="CollisionShape2D" parent="Good"]
-position = Vector2(0, -1.1875)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_js7cn")
 
-[connection signal="area_shape_exited" from="Regular" to="." method="_on_regular_area_shape_exited"]
 [connection signal="body_entered" from="Regular" to="." method="_on_regular_body_entered"]
 [connection signal="body_exited" from="Regular" to="." method="_on_regular_body_exited"]
+[connection signal="body_entered" from="Good" to="." method="_on_good_body_entered"]
+[connection signal="body_exited" from="Good" to="." method="_on_good_body_exited"]
