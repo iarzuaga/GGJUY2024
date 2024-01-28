@@ -91,7 +91,7 @@ position = Vector2(0, -1)
 scale = Vector2(0.435, 0.393)
 sprite_frames = SubResource("SpriteFrames_njmu7")
 animation = &"victory"
-frame_progress = 0.322444
+frame_progress = 0.573293
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
