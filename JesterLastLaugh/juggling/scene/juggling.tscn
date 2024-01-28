@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq38s"]
 size = Vector2(20, 379)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7l7n4"]
-size = Vector2(284, 23)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bu1i5"]
+distance = 29.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fafvs"]
 size = Vector2(20, 389)
@@ -22,15 +22,15 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
-position = Vector2(128, -146)
+position = Vector2(133, -146)
 shape = SubResource("RectangleShape2D_iq38s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-4, -8.5)
-shape = SubResource("RectangleShape2D_7l7n4")
+position = Vector2(-1, 10)
+shape = SubResource("WorldBoundaryShape2D_bu1i5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(-144, -156)
+position = Vector2(-155, -150.5)
 shape = SubResource("RectangleShape2D_fafvs")
 
 [node name="JugglingJester" parent="." instance=ExtResource("2_udrno")]
@@ -41,13 +41,13 @@ anchor_mode = 0
 zoom = Vector2(2.3, 2.3)
 
 [node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(402, 130)
+position = Vector2(404, 130)
 
 [node name="JugglingKnife2" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(439, 162)
+position = Vector2(317, 62)
 
 [node name="JugglingKnife3" parent="." instance=ExtResource("3_cydgv")]
 position = Vector2(361, 100)
 
 [node name="JugglingKnife4" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(324, 73)
+position = Vector2(442, 160)

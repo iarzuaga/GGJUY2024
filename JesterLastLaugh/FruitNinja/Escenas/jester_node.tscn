@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvon62xgvlwm7"]
+[gd_scene load_steps=9 format=3 uid="uid://bvon62xgvlwm7"]
 
 [ext_resource type="Script" path="res://FruitNinja/Scripts/JesterNode.gd" id="1_k1kif"]
 [ext_resource type="Texture2D" uid="uid://bdxtus4ehn8ai" path="res://FruitNinja/Assets/char.png" id="2_jiq8f"]
+[ext_resource type="AudioStream" uid="uid://b4l0a7ii2ohln" path="res://FruitNinja/Assets/sounds/sound_knife.wav" id="3_vkrb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r52dq"]
+size = Vector2(107.5, 140.5)
 
 [sub_resource type="Animation" id="Animation_joox3"]
 resource_name = "idle"
@@ -62,6 +64,8 @@ _data = {
 }
 
 [node name="JesterNode" type="CharacterBody2D"]
+collision_layer = 524289
+collision_mask = 524296
 script = ExtResource("1_k1kif")
 
 [node name="jesterSprite" type="Sprite2D" parent="."]
@@ -70,8 +74,8 @@ hframes = 6
 region_rect = Rect2(31.5073, 34.2967, 74.1747, 62.9785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_r52dq")
-disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -79,3 +83,6 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_aurb4")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vkrb3")

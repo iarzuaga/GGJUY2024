@@ -4,23 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://bvon62xgvlwm7" path="res://FruitNinja/Escenas/jester_node.tscn" id="2_55n4e"]
 [ext_resource type="PackedScene" uid="uid://6gpxshneivir" path="res://FruitNinja/Escenas/cannon.tscn" id="3_0erdv"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_hawof"]
-a = Vector2(-708, 280)
-b = Vector2(1360, 280)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4qy2c"]
+a = Vector2(-397, -8)
+b = Vector2(567, -9)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_kxoxx"]
-a = Vector2(501, 301)
-b = Vector2(500, -303)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4e5qq"]
+a = Vector2(1, -494)
+b = Vector2(1, 160)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lksdx"]
-a = Vector2(0, 298)
-b = Vector2(-2, -333)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_djmk5"]
+a = Vector2(4, 149)
+b = Vector2(5, -473)
 
 [node name="EscenaFruitNinja" type="Node2D"]
 script = ExtResource("1_rvxu5")
 
 [node name="JesterNode" parent="." instance=ExtResource("2_55n4e")]
-position = Vector2(282, 238)
+position = Vector2(265, 215)
 scale = Vector2(0.6, 0.6)
 
 [node name="Timer" type="Timer" parent="."]
@@ -37,19 +37,25 @@ position = Vector2(530, 282)
 position = Vector2(-25, 283)
 
 [node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 524292
+collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, 1)
-shape = SubResource("SegmentShape2D_hawof")
+position = Vector2(302, 270)
+shape = SubResource("SegmentShape2D_4qy2c")
 
 [node name="WallR" type="StaticBody2D" parent="."]
+collision_layer = 524296
+collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallR"]
-shape = SubResource("SegmentShape2D_kxoxx")
-disabled = true
+position = Vector2(486, 170)
+shape = SubResource("SegmentShape2D_4e5qq")
 
 [node name="WallL" type="StaticBody2D" parent="."]
+collision_layer = 524289
+collision_mask = 524289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallL"]
-shape = SubResource("SegmentShape2D_lksdx")
-disabled = true
+position = Vector2(217, 146)
+shape = SubResource("SegmentShape2D_djmk5")
