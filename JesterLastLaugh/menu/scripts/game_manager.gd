@@ -13,6 +13,7 @@ var timer_to_start: float = 0
 @onready var pause_ui = $PauseBg
 @onready var fade = $ScreenFade
 @onready var timer = $Timer
+@onready var label = $PauseBg/PauseMenu/Label
 @onready var games = [
 	preload("res://laudgame/note_game.tscn"),
 	preload("res://juggling/scene/juggling.tscn"),
@@ -36,13 +37,13 @@ func load_game(index: int):
 	var node: Node = game.instantiate()
 	add_child(node)
 	current_game_node = node
-	node.set_difficulty(3)
+	node.set_difficulty(1)
 	timer_to_start = time_to_start
 
 func _process(delta: float):
 	timer_to_start -= delta
 	
-	$PauseBg/PauseMenu/Label.text = "Game starts in " + str(floorf(timer_to_start + 1))
+	label.text = "Game starts in " + str(floorf(timer_to_start + 1))
 	
 	if timer_to_start <= 0 and is_paused:
 		pause_ui.hide()

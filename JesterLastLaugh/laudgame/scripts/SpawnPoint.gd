@@ -19,3 +19,6 @@ func kill_note(node: Node):
 
 func fail_note(node):
 	node.fail()
+
+func missed_note():
+	get_parent().missed_note()
