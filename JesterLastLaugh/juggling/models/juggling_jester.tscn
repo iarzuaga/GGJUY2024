@@ -69,9 +69,9 @@ script = ExtResource("1_o4otc")
 position = Vector2(0, -1)
 scale = Vector2(0.435, 0.393)
 sprite_frames = SubResource("SpriteFrames_njmu7")
-animation = &"run"
-frame = 2
-frame_progress = 0.98498
+
+animation = &"victory"
+frame_progress = 0.573293
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

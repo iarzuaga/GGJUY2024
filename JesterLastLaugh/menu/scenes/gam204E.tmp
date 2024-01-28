@@ -16,6 +16,8 @@ font_size = 13
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_14ldd")
+difficulty = null
+time_to_start = null
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -80,5 +82,3 @@ script = ExtResource("9_hsduj")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
