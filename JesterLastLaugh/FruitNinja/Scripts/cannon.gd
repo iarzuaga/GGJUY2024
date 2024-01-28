@@ -27,4 +27,5 @@ func shot_projectile():
 	var force = Vector2(randi_range(force_min,force_max),randi_range(force_min,force_max))
 	var ammunition = prefab_throwable.instantiate()
 	add_child(ammunition)
+	#print("NombreProyectil: "+ammunition.get_name())
 	ammunition.start_movement(Vector2(dir_modifier.x*cos(random_angle),dir_modifier.y*sin(random_angle)),force)

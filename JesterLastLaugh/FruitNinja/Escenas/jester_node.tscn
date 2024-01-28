@@ -1,11 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvon62xgvlwm7"]
+[gd_scene load_steps=8 format=3 uid="uid://bvon62xgvlwm7"]
 
 [ext_resource type="Script" path="res://FruitNinja/Scripts/JesterNode.gd" id="1_k1kif"]
-[ext_resource type="Texture2D" uid="uid://bwgdtt2egrngq" path="res://icon.svg" id="2_06xn3"]
+[ext_resource type="Texture2D" uid="uid://bdxtus4ehn8ai" path="res://FruitNinja/Assets/char.png" id="2_jiq8f"]
 
-[node name="JesterNode" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r52dq"]
+
+[sub_resource type="Animation" id="Animation_joox3"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jesterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6w7ab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jesterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i1w76"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jesterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aurb4"]
+_data = {
+"RESET": SubResource("Animation_6w7ab"),
+"idle": SubResource("Animation_joox3"),
+"run": SubResource("Animation_i1w76")
+}
+
+[node name="JesterNode" type="CharacterBody2D"]
 script = ExtResource("1_k1kif")
 
 [node name="jesterSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_06xn3")
+texture = ExtResource("2_jiq8f")
+hframes = 6
 region_rect = Rect2(31.5073, 34.2967, 74.1747, 62.9785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r52dq")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aurb4")
+}
