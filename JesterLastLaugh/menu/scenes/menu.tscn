@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://blbilrwl3cehn"]
+[gd_scene load_steps=8 format=3 uid="uid://blbilrwl3cehn"]
 
 [ext_resource type="Script" path="res://menu/scripts/menu.gd" id="1_yyrxh"]
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="2_3u5as"]
 [ext_resource type="Texture2D" uid="uid://d2f7mh6cugnwp" path="res://menu/assets/menu_bk.png" id="2_qn20f"]
+[ext_resource type="Texture2D" uid="uid://bxrrl0h7nk8y3" path="res://menu/assets/background.png" id="2_tgsk2"]
+[ext_resource type="Texture2D" uid="uid://8bujefl7vh34" path="res://menu/assets/menu_king.png" id="4_8lcey"]
+[ext_resource type="AudioStream" uid="uid://hnaigdflrqyp" path="res://menu/assets/Kevin MacLeod - Miri's Magic Dance.mp3" id="6_i6fq8"]
 
 [sub_resource type="Theme" id="Theme_83m73"]
 default_font = ExtResource("2_3u5as")
@@ -19,6 +22,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yyrxh")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(26.5, 25.5)
+scale = Vector2(1.30469, 1.31019)
+texture = ExtResource("2_tgsk2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -223.0
+offset_top = -115.0
+offset_right = 276.0
+offset_bottom = 167.0
+color = Color(0, 0, 0, 0.435294)
+
+[node name="MenuKing" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(85, 60)
+texture = ExtResource("4_8lcey")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-224, -115)
 anchor_mode = 0
@@ -27,18 +49,19 @@ zoom = Vector2(2.3, 2.3)
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -7.0
-offset_top = -4.0
-offset_right = 52.0
-offset_bottom = 47.0
+offset_left = -18.0
+offset_top = -24.0
+offset_right = 58.0
+offset_bottom = 42.0
 texture = ExtResource("2_qn20f")
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
 layout_mode = 2
-offset_left = -5.0
-offset_top = -1.0
+offset_left = -11.0
+offset_top = -13.0
 offset_right = 53.0
-offset_bottom = 61.0
+offset_bottom = 33.0
 scale = Vector2(0.997891, 1.00997)
 size_flags_vertical = 4
 theme_override_constants/separation = 0
@@ -47,6 +70,7 @@ script = ExtResource("1_yyrxh")
 [node name="Start" type="Button" parent="MenuContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_83m73")
 text = "Start"
 flat = true
@@ -54,9 +78,14 @@ flat = true
 [node name="Exit" type="Button" parent="MenuContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_83m73")
 text = "Exit "
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i6fq8")
+autoplay = true
 
 [connection signal="pressed" from="MenuContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuContainer/Exit" to="." method="_on_start_pressed"]

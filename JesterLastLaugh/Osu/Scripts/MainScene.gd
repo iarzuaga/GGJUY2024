@@ -8,6 +8,7 @@ extends Node2D
 @onready var cordinate_top_right = $Cordinate_top_right
 @onready var cordinate_botton_left = $Cordinate_botton_left
 @onready var cordinate_botton_right = $Cordinate_botton_right
+@onready var menu_song = $MenuSong
 
 var _number_generator: RandomNumberGenerator
 var viewport_size: Vector2
@@ -16,7 +17,6 @@ var actual_score: int
 var difficulty_game: int
 var time_spawn_circle : float
 var time_kill_circle : float
-var margin_one: int
 var margin_two: int
 var circle_total_win : int
 var score_per_circle: int
@@ -24,10 +24,15 @@ var circle_number: int
 var circle_died: int
 var pocketed_circles: int
 
-func play():
-	pass
+
+
+func start():
+	timer.connect("timeout",_spawn_circles)
+	timer.wait_time = time_spawn_circle
+	timer.start()
 
 func _ready():
+	menu_song.play()
 	playable_zone.append(cordinate_top_left.position)
 	playable_zone.append(cordinate_top_right.position)
 	playable_zone.append(cordinate_botton_left.position)
@@ -35,85 +40,71 @@ func _ready():
 	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
-	set_difficulty(1)
+	pocketed_circles = 0
+	circle_number = 1
+	circle_died = 0
 	add_child(score)
 	score.score_per_circle = score_per_circle
-	_lets_begin()
-
-func _lets_begin():
-	timer.connect("timeout",_spawn_circles)
-	timer.wait_time = time_spawn_circle
-	timer.start()
-
+	
 func _spawn_circles():
-	_control_win_defeat()
-	var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
-	var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
-	var Circle: CharacterBody2D = packCircle.instantiate()
-	Circle.position.x = _random_num_x_position
-	Circle.position.y = _random_num_y_position
-	Circle.time_kill_circle = time_kill_circle
-	add_child(Circle)
-	circle_number = circle_number + 1
-
-func _score_count():
-	actual_score = score._get_score()
+		_control_win_defeat()
+		var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
+		var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
+		var Circle: CharacterBody2D = packCircle.instantiate()
+		Circle.position.x = _random_num_x_position
+		Circle.position.y = _random_num_y_position
+		Circle.time_kill_circle = time_kill_circle
+		circle_number = circle_number + 1
+		add_child(Circle)
+		
+func _score_count() -> int:
+	return score._get_score()
 
 func _add_gold():
-	get_parent().add_gold(round(actual_score / 2))
-	print(round(actual_score / 2))
+	get_parent().add_gold(score_per_circle)
 
 func set_difficulty(difficulty : int):
 	difficulty_game = difficulty
-	_set_difficulty_times()
+	_set_difficulty_times(difficulty_game)
 
-func _set_difficulty_times():
+func _set_difficulty_times(difficulty_game : int):
 	match (difficulty_game):
 		0:
-			time_spawn_circle = 2
-			time_kill_circle = 1.3
-			margin_one = 3
-			margin_two = 6
-			circle_total_win = 25
-			score_per_circle = 2
+			time_spawn_circle = 1.7
+			time_kill_circle = 1.5
+			margin_two = 3
+			circle_total_win = 12
+			score_per_circle = 1
 		1:
-			time_spawn_circle = 1.4
-			time_kill_circle = 1
-			margin_one = 5
-			margin_two = 9
-			circle_total_win = 27
-			score_per_circle = 3
+			time_spawn_circle = 1.5
+			time_kill_circle = 1.3
+			margin_two = 2
+			circle_total_win = 15
+			score_per_circle = 2
 		2:
-			time_spawn_circle =  0.8
-			time_kill_circle = 0.5
-			margin_one = 6
-			margin_two = 9
-			circle_total_win = 33
-			score_per_circle = 5
+			time_spawn_circle =  1.2
+			time_kill_circle = 1
+			margin_two = 1
+			circle_total_win = 20
+			score_per_circle = 4
 		3:
-			time_spawn_circle = 0.2
-			time_kill_circle = 0.1
-			margin_one = 4
-			margin_two = 7
-			circle_total_win = 40
-			score_per_circle = 8
+			time_spawn_circle = 1
+			time_kill_circle = 0.7
+			margin_two = 0
+			circle_total_win = 25
+			score_per_circle = 7
 
 func _control_win_defeat():
-	if circle_died >= margin_one and circle_died <= circle_died and pocketed_circles + circle_died == circle_total_win:
-		print("GANASTE")
-		_score_count()
-		print(actual_score)
-		get_tree().paused = true
-		#get_parent().end_game(true)
-	elif circle_died == margin_two + 1:
-		print("PERDISTE")
-		_score_count()
-		print(actual_score)
-		get_tree().paused = true
-		#get_parent().end_game(false)
+	if pocketed_circles + circle_died == circle_total_win and circle_died < margin_two + 1:
+		timer.stop()
+		get_parent().end_game(true)
+	elif circle_died >= margin_two + 1:
+		timer.stop()
+		get_parent().end_game(false)
 
 func _count_died_circles():
 	circle_died = circle_died + 1
 
 func _count_pocketed_circles():
+	_add_gold()
 	pocketed_circles = pocketed_circles + 1

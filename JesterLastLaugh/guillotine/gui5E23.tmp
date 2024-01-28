@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp3wkwxlng8f1"]
+
+[ext_resource type="Script" path="res://guillotine/guillotine.gd" id="1_jlv4b"]
+[ext_resource type="Texture2D" uid="uid://cd2sf40q4ow2x" path="res://guillotine/assets/guillotine.png" id="1_wu8q5"]
+
+[node name="Guillotine" type="Node2D"]
+script = ExtResource("1_jlv4b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+enabled = false
+zoom = Vector2(2.3, 2.3)
+
+[node name="Guillotine" type="Node2D" parent="."]
+position = Vector2(172, 0)
+
+[node name="Guillotine2" type="Sprite2D" parent="Guillotine"]
+texture_filter = 1
+position = Vector2(75, 139)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(513, 9, 105, 256)
+
+[node name="Guillotine" type="Sprite2D" parent="Guillotine"]
+texture_filter = 1
+position = Vector2(75, 139)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(410, 6, 105, 256)
+
+[node name="Blade" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(246, 49)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(342.12, 201.98, 61.157, 53.719)
+
+[node name="EndPoint" type="Node2D" parent="."]
+position = Vector2(178, 187)

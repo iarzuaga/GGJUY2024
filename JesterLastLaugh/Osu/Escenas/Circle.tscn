@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfmw0mlgvoo06"]
+[gd_scene load_steps=9 format=3 uid="uid://cfmw0mlgvoo06"]
 
 [ext_resource type="Script" path="res://Osu/Scripts/Circle.gd" id="1_3mpmb"]
 [ext_resource type="Texture2D" uid="uid://y5cbt2ggpyu1" path="res://Osu/Assets/osu_circle.png" id="1_w4rg1"]
 [ext_resource type="Script" path="res://Osu/Scripts/AnimatedSprite2D.gd" id="3_v0ixv"]
+[ext_resource type="AudioStream" uid="uid://c3r1t1vtip1j2" path="res://Osu/Assets/Marbles_Clicking_Together_2.mp3" id="4_6tlb6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0gxk"]
 atlas = ExtResource("1_w4rg1")
@@ -39,7 +40,7 @@ position = Vector2(418, 94)
 scale = Vector2(2.34, 2.25)
 script = ExtResource("1_3mpmb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="JesterIdle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_gdrio")
@@ -52,4 +53,7 @@ shape = SubResource("CircleShape2D_lcgxp")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="ClickCircleSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6tlb6")
+
+[connection signal="animation_finished" from="JesterIdle" to="." method="_on_animated_sprite_2d_animation_finished"]

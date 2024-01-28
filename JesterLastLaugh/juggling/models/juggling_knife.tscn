@@ -1,31 +1,36 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4wr42uqlvyhq"]
+[gd_scene load_steps=25 format=3 uid="uid://b4wr42uqlvyhq"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling_knife.gd" id="1_yf55k"]
 [ext_resource type="Texture2D" uid="uid://bxkodo5hdxwvd" path="res://juggling/assets/clean_knife.png" id="2_8nx8t"]
+[ext_resource type="Texture2D" uid="uid://dnd0frme38w7p" path="res://juggling/assets/shining_knife.png" id="3_f0eoq"]
+
+[sub_resource type="AudioStream" id="AudioStream_ge7gl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e1pav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_me2nb"]
 atlas = ExtResource("2_8nx8t")
 region = Rect2(120, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksolf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ter8o"]
 atlas = ExtResource("2_8nx8t")
-region = Rect2(180, 0, 60, 76)
+region = Rect2(300, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmcux"]
 atlas = ExtResource("2_8nx8t")
 region = Rect2(240, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ter8o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_44wyj"]
 atlas = ExtResource("2_8nx8t")
-region = Rect2(300, 0, 60, 76)
+region = Rect2(420, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3blxi"]
 atlas = ExtResource("2_8nx8t")
 region = Rect2(360, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_44wyj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksolf"]
 atlas = ExtResource("2_8nx8t")
-region = Rect2(420, 0, 60, 76)
+region = Rect2(180, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j514i"]
 atlas = ExtResource("2_8nx8t")
@@ -33,6 +38,38 @@ region = Rect2(0, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2of6f"]
 atlas = ExtResource("2_8nx8t")
+region = Rect2(60, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnd8q"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(120, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efff3"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(300, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnl4s"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(240, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc7dk"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(420, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vkl2"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(360, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy70e"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(180, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n8n3"]
+atlas = ExtResource("3_f0eoq")
+region = Rect2(0, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c406x"]
+atlas = ExtResource("3_f0eoq")
 region = Rect2(60, 0, 60, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uxfy"]
@@ -46,19 +83,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_me2nb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ksolf")
+"texture": SubResource("AtlasTexture_ter8o")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cmcux")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ter8o")
+"texture": SubResource("AtlasTexture_44wyj")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3blxi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_44wyj")
+"texture": SubResource("AtlasTexture_ksolf")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j514i")
@@ -68,7 +105,36 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 30.0
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnd8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efff3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnl4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc7dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vkl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy70e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n8n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c406x")
+}],
+"loop": true,
+"name": &"shining",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -85,15 +151,23 @@ height = 103.226
 
 [node name="JugglingKnife" type="RigidBody2D"]
 mass = 0.35
-gravity_scale = 0.1
+gravity_scale = 0.05
 script = ExtResource("1_yf55k")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_ge7gl")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_e1pav")
 position = Vector2(3.8147e-06, 1.90735e-06)
 scale = Vector2(0.435, 0.325)
 sprite_frames = SubResource("SpriteFrames_v4bu2")
+animation = &"shining"
+frame_progress = 0.596111
 
 [node name="KnifeCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(0.435, 0.155)
 shape = SubResource("CapsuleShape2D_ask46")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

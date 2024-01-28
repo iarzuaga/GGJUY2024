@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp3wkwxlng8f1"]
+
+[ext_resource type="Script" path="res://guillotine/guillotine.gd" id="1_jlv4b"]
+[ext_resource type="Texture2D" uid="uid://cd2sf40q4ow2x" path="res://guillotine/assets/guillotine.png" id="1_wu8q5"]
+[ext_resource type="AudioStream" uid="uid://bv83svlkd8oth" path="res://guillotine/assets/30187__glaneur-de-sons__guillottine-test-02.ogg" id="3_mi0ka"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1evxt"]
+radius = 3.16228
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8liy0"]
+size = Vector2(562, 81)
+
+[node name="Guillotine" type="Node2D"]
+script = ExtResource("1_jlv4b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2.3, 2.3)
+
+[node name="Blade" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(389, 154)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(342.12, 201.98, 61.157, 53.719)
+
+[node name="Guillotine" type="Node2D" parent="."]
+position = Vector2(355, 134)
+scale = Vector2(0.435, 0.435)
+
+[node name="Guillotine2" type="Sprite2D" parent="Guillotine"]
+visible = false
+texture_filter = 1
+position = Vector2(75, 139)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(513, 9, 105, 256)
+
+[node name="Guillotine" type="Sprite2D" parent="Guillotine"]
+texture_filter = 1
+position = Vector2(75, 139)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(410, 6, 105, 256)
+
+[node name="EndPoint" type="Node2D" parent="."]
+position = Vector2(379, 230)
+scale = Vector2(0.435, 0.435)
+
+[node name="gph1" type="CPUParticles2D" parent="."]
+position = Vector2(395, 230)
+scale = Vector2(0.435, 0.435)
+emitting = false
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 0.1
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+
+[node name="gphead" type="CPUParticles2D" parent="."]
+position = Vector2(387, 229)
+scale = Vector2(0.435, 0.435)
+emitting = false
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 0.1
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+
+[node name="gph3" type="CPUParticles2D" parent="."]
+position = Vector2(380, 232)
+scale = Vector2(0.435, 0.435)
+emitting = false
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 0.1
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+
+[node name="Hand2" type="RigidBody2D" parent="."]
+position = Vector2(380, 232)
+collision_layer = 2
+freeze = true
+linear_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand2"]
+texture_filter = 1
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(63.7828, 141.783, 12.1618, 13.513)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand2"]
+shape = SubResource("CircleShape2D_1evxt")
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(387, 229)
+freeze = true
+linear_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+texture_filter = 1
+position = Vector2(2, 0)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(353.572, 121.839, 40.936, 49.3147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource("CircleShape2D_1evxt")
+
+[node name="Hand1" type="RigidBody2D" parent="."]
+position = Vector2(395, 232)
+collision_layer = 4
+freeze = true
+linear_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand1"]
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("1_wu8q5")
+region_enabled = true
+region_rect = Rect2(98.4421, 140.075, 16.0393, 17.715)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand1"]
+shape = SubResource("CircleShape2D_1evxt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(239, 309)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_8liy0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mi0ka")
