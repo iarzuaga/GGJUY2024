@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddmgnd3jmcttu"]
+
+[ext_resource type="Script" path="res://FruitNinja/Scripts/dummy_object.gd" id="1_2e1v4"]
+[ext_resource type="Texture2D" uid="uid://2qrjgc8462kq" path="res://FruitNinja/Assets/platos_grid_t.png" id="2_lbe6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdvtn"]
+size = Vector2(30, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ca4s"]
+atlas = ExtResource("2_lbe6t")
+region = Rect2(0, 0, 43, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ymoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ca4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dummy_object" type="RigidBody2D"]
+position = Vector2(-2, 1)
+collision_mask = 3
+gravity_scale = 0.0
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_2e1v4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_pdvtn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5ymoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

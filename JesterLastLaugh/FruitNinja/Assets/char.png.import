@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dayyk6v6l2njg"
-path="res://.godot/imported/laud_arm.png-659e609985aada5f21182e8e5a84edaa.ctex"
+uid="uid://bdxtus4ehn8ai"
+path="res://.godot/imported/char.png-28371c75b238b343b93dcfc27688799e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://laudgame/assets/textures/laud_arm.png"
-dest_files=["res://.godot/imported/laud_arm.png-659e609985aada5f21182e8e5a84edaa.ctex"]
+source_file="res://FruitNinja/Assets/char.png"
+dest_files=["res://.godot/imported/char.png-28371c75b238b343b93dcfc27688799e.ctex"]
 
 [params]
 

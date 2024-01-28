@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvon62xgvlwm7"]
+
+[ext_resource type="Script" path="res://FruitNinja/Scripts/JesterNode.gd" id="1_k1kif"]
+[ext_resource type="Texture2D" uid="uid://bwgdtt2egrngq" path="res://icon.svg" id="2_06xn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r52dq"]
+
+[node name="JesterNode" type="CharacterBody2D"]
+script = ExtResource("1_k1kif")
+
+[node name="jesterSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_06xn3")
+region_rect = Rect2(31.5073, 34.2967, 74.1747, 62.9785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r52dq")

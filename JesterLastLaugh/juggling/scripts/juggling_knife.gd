@@ -27,7 +27,7 @@ func _physics_process(delta):
 func resume_knife():
 	freeze = false
 	_animated_sprite.play("default")
-	apply_central_impulse(Vector2(0, -100));
+	apply_central_impulse(Vector2(0, -70));
 	
 func freeze_knife():
 	freeze = true

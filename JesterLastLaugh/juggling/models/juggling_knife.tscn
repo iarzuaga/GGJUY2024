@@ -80,12 +80,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ask46"]
-radius = 16.092
+radius = 20.6897
 height = 103.226
 
 [node name="JugglingKnife" type="RigidBody2D"]
 mass = 0.35
-gravity_scale = 0.2
+gravity_scale = 0.1
 script = ExtResource("1_yf55k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

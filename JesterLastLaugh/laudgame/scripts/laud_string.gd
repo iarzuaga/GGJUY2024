@@ -14,9 +14,10 @@ extends Node
 var string_on = load("res://laudgame/assets/textures/string_on.png")
 var string_off = load("res://laudgame/assets/textures/string_off.png")
 var notes_inside = []
-var play_time = 0
-var mod_time = 0
-var color_timer = 0.0
+var play_time: float = 0
+var mod_time: float = 0
+var color_timer: float = 0.0
+var color: String = "FFFFFF"
 var sound_stream
 
 func _ready():
@@ -24,7 +25,7 @@ func _ready():
 	area2d.connect("area_entered", _note_entered)
 	area2d.connect("area_exited", _note_exited)
 	label.text = letter
-	color_rect.color = Color("FFFFFF", 0.0)
+	color_rect.color = Color(color, 0.0)
 	sound_stream = load(sound)
 
 func _process(delta):
@@ -32,14 +33,22 @@ func _process(delta):
 		sprite.texture = string_on
 		timer.start(0.3)
 		color_timer = 0.5
+		color = "FFFFFF"
 		
-		$AudioStreamPlayer2D.stream = sound_stream if len(notes_inside) != 0 else wrong_sound_stream
+		if len(notes_inside) != 0:
+			$AudioStreamPlayer2D.stream = sound_stream
+			get_parent().get_parent().hit += 1 
+		else:
+			$AudioStreamPlayer2D.stream = wrong_sound_stream
+			color = "FF0000"
+			get_parent().get_parent().miss += 1
+			
 		$AudioStreamPlayer2D.play()
 		
 		for note in notes_inside:
 			spawnpoint.kill_note(note)
 		
-	color_rect.color = Color("FFFFFF", color_timer / 1.0)
+	color_rect.color = Color(color, color_timer / 1.0)
 	color_timer -= delta
 		
 func _note_entered(area):
@@ -54,3 +63,6 @@ func _reset_texture():
 
 func add_note():
 	spawnpoint.spawn_note(note_speed)
+
+func missed_note():
+	get_parent().get_parent().miss += 1

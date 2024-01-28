@@ -55,7 +55,7 @@ animations = [{
 size = Vector2(50, 1.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41va8"]
-size = Vector2(7.0005, 1.41591)
+size = Vector2(7.0005, 1.76989)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js7cn"]
 size = Vector2(51, 8)
@@ -64,6 +64,7 @@ size = Vector2(51, 8)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_o4otc")
+speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
@@ -82,7 +83,7 @@ shape = SubResource("RectangleShape2D_dmml7")
 input_pickable = false
 
 [node name="RegularThrow" type="CollisionShape2D" parent="Regular"]
-position = Vector2(0.499998, -9)
+position = Vector2(0.499998, -10.5)
 scale = Vector2(7.28519, 8.47512)
 shape = SubResource("RectangleShape2D_41va8")
 

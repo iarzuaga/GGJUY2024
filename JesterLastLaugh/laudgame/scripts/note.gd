@@ -17,4 +17,5 @@ func fail():
 	timer.start(0.2)
 
 func _self_kill():
+	get_parent().missed_note()
 	get_parent().remove_child(self)
