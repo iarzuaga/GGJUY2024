@@ -18,15 +18,15 @@ func throw(force):
 	sleeping = true
 	var jump = -1 * calculate_gravity(force)
 	apply_central_impulse(Vector2(0, jump));
-	_animated_sprite.play("spin")
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(Vector2(0,0))
 	if collision_info:
-		_animated_sprite.play("default")
+		_animated_sprite.play("stuck")
 
 func resume_knife():
 	freeze = false
+	_animated_sprite.play("default")
 	apply_central_impulse(Vector2(0, -100));
 	
 func freeze_knife():

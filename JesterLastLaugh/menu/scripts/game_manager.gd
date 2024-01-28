@@ -31,7 +31,6 @@ func load_game(index: int):
 	timer_to_start = time_to_start
 
 func _process(delta: float):
-	print("asdsadd")
 	timer_to_start -= delta
 	
 	$PauseBg/PauseMenu/Label.text = "Game starts in " + str(floorf(timer_to_start + 1))

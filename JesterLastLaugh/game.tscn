@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2d8jdaf5nemg"]
+[gd_scene load_steps=11 format=3 uid="uid://d2d8jdaf5nemg"]
 
 [ext_resource type="Script" path="res://menu/scripts/game_manager.gd" id="1_g8qnk"]
 [ext_resource type="PackedScene" uid="uid://b5bwfxdvu3nut" path="res://gold_counter/gold_counter.tscn" id="2_c6d6v"]
@@ -12,6 +12,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_7y2yp"]
 font = ExtResource("7_hltc3")
 font_size = 13
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4l6ur"]
+distance = 29.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_g8qnk")
@@ -69,3 +72,7 @@ offset_right = 63.0
 offset_bottom = 7.5
 text = "Press any key to start"
 label_settings = SubResource("LabelSettings_7y2yp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-123, -38)
+shape = SubResource("WorldBoundaryShape2D_4l6ur")

@@ -1,87 +1,87 @@
 [gd_scene load_steps=14 format=3 uid="uid://b4wr42uqlvyhq"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling_knife.gd" id="1_yf55k"]
-[ext_resource type="Texture2D" uid="uid://bnt3pn308nsvm" path="res://juggling/assets/knife.png" id="2_78r0r"]
+[ext_resource type="Texture2D" uid="uid://bxkodo5hdxwvd" path="res://juggling/assets/clean_knife.png" id="2_8nx8t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yima3"]
-atlas = ExtResource("2_78r0r")
+[sub_resource type="AtlasTexture" id="AtlasTexture_me2nb"]
+atlas = ExtResource("2_8nx8t")
 region = Rect2(120, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xu4vo"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(0, 0, 60, 76)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksolf"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(180, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7yat"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(60, 0, 60, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fur7h"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(120, 0, 60, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqesw"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(300, 0, 60, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_es54o"]
-atlas = ExtResource("2_78r0r")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmcux"]
+atlas = ExtResource("2_8nx8t")
 region = Rect2(240, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_koer7"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(420, 0, 60, 76)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ter8o"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(300, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3fuiv"]
-atlas = ExtResource("2_78r0r")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3blxi"]
+atlas = ExtResource("2_8nx8t")
 region = Rect2(360, 0, 60, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uy62m"]
-atlas = ExtResource("2_78r0r")
-region = Rect2(180, 0, 60, 76)
+[sub_resource type="AtlasTexture" id="AtlasTexture_44wyj"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(420, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j514i"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(0, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2of6f"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(60, 0, 60, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uxfy"]
+atlas = ExtResource("2_8nx8t")
+region = Rect2(120, 0, 60, 76)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v4bu2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yima3")
+"texture": SubResource("AtlasTexture_me2nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksolf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmcux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ter8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3blxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44wyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j514i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2of6f")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_xu4vo")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_a7yat")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_fur7h")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_kqesw")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_es54o")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_koer7")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_3fuiv")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_uy62m")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uxfy")
 }],
 "loop": true,
-"name": &"spin",
+"name": &"stuck",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ask46"]
-radius = 22.9885
-height = 129.032
+radius = 16.092
+height = 103.226
 
 [node name="JugglingKnife" type="RigidBody2D"]
 mass = 0.35
@@ -92,7 +92,6 @@ script = ExtResource("1_yf55k")
 position = Vector2(3.8147e-06, 1.90735e-06)
 scale = Vector2(0.435, 0.325)
 sprite_frames = SubResource("SpriteFrames_v4bu2")
-frame_progress = 0.42515
 
 [node name="KnifeCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.38419e-07)
