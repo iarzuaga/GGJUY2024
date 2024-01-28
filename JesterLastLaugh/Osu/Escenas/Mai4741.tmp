@@ -12,6 +12,13 @@ script = ExtResource("1_0mwrj")
 [node name="Jester" parent="." instance=ExtResource("3_vsym7")]
 position = Vector2(795, 538)
 
+[node name="ScoreCount" parent="." instance=ExtResource("4_vstty")]
+offset_left = -6.0
+offset_top = -7.0
+offset_right = -6.0
+offset_bottom = -7.0
+scale = Vector2(0.780272, 0.793418)
+
 [node name="Cordinate_top_left" type="Node2D" parent="."]
 position = Vector2(201, 10)
 scale = Vector2(-202.532, -322.559)
@@ -24,9 +31,3 @@ position = Vector2(492, 219)
 
 [node name="Cordinate_botton_left" type="Node2D" parent="."]
 position = Vector2(201, 219)
-
-[node name="ScoreCount" parent="." instance=ExtResource("4_vstty")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(2.3, 2.3)
