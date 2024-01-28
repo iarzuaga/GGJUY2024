@@ -3,13 +3,7 @@ extends CharacterBody2D
 @onready var measureTime = $Timer
 @onready var audioStream = $ClickCircleSong
 var score: Node
-var wait_time_circle_kill : float
 var time_kill_circle : float
-var circle_died : int
-var margin_one : int
-var margin_two : int
-var circle_total_win : int
-var spawned: int
 
 func _ready():
 	score = get_parent().get_node("ScoreCount")

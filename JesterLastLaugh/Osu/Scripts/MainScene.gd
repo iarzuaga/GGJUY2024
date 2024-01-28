@@ -40,22 +40,24 @@ func _ready():
 	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
-	set_difficulty(1)
-	
+	set_difficulty(difficulty_game)
+	circle_number = 0
 	add_child(score)
 	score.score_per_circle = score_per_circle
 	
 
 func _spawn_circles():
-	_control_win_defeat()
-	var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
-	var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
-	var Circle: CharacterBody2D = packCircle.instantiate()
-	Circle.position.x = _random_num_x_position
-	Circle.position.y = _random_num_y_position
-	Circle.time_kill_circle = time_kill_circle
-	add_child(Circle)
-	circle_number = circle_number + 1
+	if circle_number < circle_total_win:
+		_control_win_defeat()
+		var _random_num_x_position = _number_generator.randi_range(playable_zone[0].x,playable_zone[1].x)
+		var _random_num_y_position = _number_generator.randi_range(playable_zone[0].y,playable_zone[2].y)
+		var Circle: CharacterBody2D = packCircle.instantiate()
+		Circle.position.x = _random_num_x_position
+		Circle.position.y = _random_num_y_position
+		Circle.time_kill_circle = time_kill_circle
+		circle_number = circle_number + 1
+		add_child(Circle)
+		
 
 func _score_count() -> int:
 	return score._get_score()
@@ -70,36 +72,32 @@ func set_difficulty(difficulty : int):
 func _set_difficulty_times():
 	match (difficulty_game):
 		0:
-			time_spawn_circle = 2
-			time_kill_circle = 1.3
-			margin_one = 3
-			margin_two = 6
-			circle_total_win = 25
-			score_per_circle = 2
+			time_spawn_circle = 1.7
+			time_kill_circle = 1.5
+			margin_two = 3
+			circle_total_win = 12
+			score_per_circle = 1
 		1:
-			time_spawn_circle = 1.4
-			time_kill_circle = 1
-			margin_one = 5
-			margin_two = 9
-			circle_total_win = 5
-			score_per_circle = 3
+			time_spawn_circle = 1.5
+			time_kill_circle = 1.3
+			margin_two = 2
+			circle_total_win = 15
+			score_per_circle = 2
 		2:
-			time_spawn_circle =  0.8
-			time_kill_circle = 0.5
-			margin_one = 6
-			margin_two = 9
-			circle_total_win = 33
-			score_per_circle = 5
+			time_spawn_circle =  1.2
+			time_kill_circle = 1
+			margin_two = 1
+			circle_total_win = 20
+			score_per_circle = 4
 		3:
-			time_spawn_circle = 0.2
-			time_kill_circle = 0.1
-			margin_one = 4
-			margin_two = 7
-			circle_total_win = 40
-			score_per_circle = 8
+			time_spawn_circle = 1
+			time_kill_circle = 0.7
+			margin_two = 0
+			circle_total_win = 25
+			score_per_circle = 7
 
 func _control_win_defeat():
-	if circle_died <= circle_died and pocketed_circles + circle_died == circle_total_win:
+	if pocketed_circles + circle_died == circle_total_win and circle_died <= margin_two + 1:
 		get_tree().paused = true
 		get_parent().end_game(true)
 	elif circle_died == margin_two + 1:
