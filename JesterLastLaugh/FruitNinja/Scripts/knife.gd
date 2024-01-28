@@ -11,9 +11,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-func object_type():
-	return "knife"
 	
 func start_movement(dir:Vector2,force):
 	sound_knife.play()
@@ -27,11 +24,11 @@ func _on_body_entered(body):
 	var colission_with_floor = mini_game_manager.some_element_in_A_is_in_B(array_layers,mini_game_manager.layers_floor)
 	var olission_with_dish = mini_game_manager.some_element_in_A_is_in_B(array_layers,mini_game_manager.layers_dish)
 	if colission_with_floor:
-		print("destroy knife")
 		#If knife touhes floor, delete the knife
 		#animation.play("floor")
 		queue_free()
 	if olission_with_dish:
 		#If knife touhes dish, delete the dish
-		print("destroy dish")
+		get_parent().get_parent().get_parent().add_gold(1)
+		get_parent().get_parent().broken_dishes+=1
 		body.destroy()

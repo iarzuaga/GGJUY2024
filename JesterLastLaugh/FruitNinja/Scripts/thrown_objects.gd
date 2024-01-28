@@ -16,9 +16,6 @@ func start_movement(dir:Vector2,force:Vector2):
 	apply_impulse(Vector2(force.x*dir.x,force.y*dir.y),position)
 	#apply_impulse(Vector2(1000*0.5,1000*(-0.5)),position)
 	
-func object_type():
-	return "plato"
-	
 func destroy():
 	#Detengo objeto
 	sound_array[randi_range (0,2)].play()
