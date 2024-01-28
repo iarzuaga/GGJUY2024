@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhup1m6xdqkyl"]
+[gd_scene load_steps=7 format=3 uid="uid://bhup1m6xdqkyl"]
 
 [ext_resource type="Script" path="res://laudgame/scripts/note_game.gd" id="1_kw04v"]
 [ext_resource type="PackedScene" uid="uid://cp1sxbjk1v7g7" path="res://laudgame/laud.tscn" id="1_sca5j"]
 [ext_resource type="Texture2D" uid="uid://bj752yikbbkjp" path="res://assets/white_30.png" id="2_w84e2"]
 [ext_resource type="Texture2D" uid="uid://bxrrl0h7nk8y3" path="res://menu/assets/background.png" id="3_8u134"]
 [ext_resource type="Texture2D" uid="uid://1o3ysvrvu0li" path="res://laudgame/assets/textures/chester.png" id="5_ha7wy"]
+[ext_resource type="AudioStream" uid="uid://befjc34bxypxl" path="res://laudgame/assets/sounds/ambient.mp3" id="6_u3vip"]
 
 [node name="Node2D" type="Node2D"]
 process_mode = 3
@@ -38,3 +39,8 @@ texture = ExtResource("5_ha7wy")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_u3vip")
+volume_db = -14.248
+autoplay = true

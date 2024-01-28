@@ -80,6 +80,9 @@ func king_happy():
 	call_in(redirect_menu, 6)
 	
 func redirect_menu():
+	fade.fade(change_scene_menu)
+	
+func change_scene_menu():
 	get_tree().change_scene_to_file('res://menu/scenes/menu.tscn')
 	
 func add_gold(amount: int):
