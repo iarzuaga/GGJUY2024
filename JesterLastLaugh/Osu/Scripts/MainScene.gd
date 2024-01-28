@@ -32,6 +32,7 @@ func _ready():
 	playable_zone.append(cordinate_top_right.position)
 	playable_zone.append(cordinate_botton_left.position)
 	playable_zone.append(cordinate_botton_right.position)
+	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
 	set_difficulty(1)
