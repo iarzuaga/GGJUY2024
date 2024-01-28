@@ -17,11 +17,12 @@ var timer_to_start: float = 0
 @onready var games = [
 	preload("res://laudgame/note_game.tscn"),
 	preload("res://juggling/scene/juggling.tscn"),
+	preload("res://FruitNinja/Escenas/fruitNinja.tscn"),
 ]
 
 func _ready():
 	gold_counter.set_gold(0)
-	load_game(0)
+	load_game(2)
 	
 func load_game(index: int):
 	if current_game_node:

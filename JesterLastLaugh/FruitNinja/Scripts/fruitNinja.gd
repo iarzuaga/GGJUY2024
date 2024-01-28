@@ -14,9 +14,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	get_parent().add_gold(1)
+	get_parent().end_game(false)
 		
 func tell_cannon_to_shot():
 	#Disparo random del cañoñ 1 o 2
 	cannon_array[randi_range (0,1)].shot_projectile()
 	#cannon_array[1].shot_projectile()
+
+func set_difficulty(value: int):
+	# 0 1 2 3
+	pass
+	
+func start():
+	pass
