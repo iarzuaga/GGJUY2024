@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drs7hdv1if7k4"
-path="res://.godot/imported/background.png-98289422cd7d93003950872a7b97021f.ctex"
+uid="uid://b470c8wntkn1t"
+path="res://.godot/imported/jester_torso.png-4ae0da83f6481019cd09c750e1366f07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background.png"
-dest_files=["res://.godot/imported/background.png-98289422cd7d93003950872a7b97021f.ctex"]
+source_file="res://juggling/assets/jester_torso.png"
+dest_files=["res://.godot/imported/jester_torso.png-4ae0da83f6481019cd09c750e1366f07.ctex"]
 
 [params]
 

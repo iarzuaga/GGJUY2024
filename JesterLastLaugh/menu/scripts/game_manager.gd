@@ -11,12 +11,13 @@ var timer_to_start: float = 0
 @onready var king = $Camera2D/King
 @onready var pause_ui = $PauseBg
 @onready var games = [
-	preload("res://laudgame/note_game.tscn")
+	preload("res://laudgame/note_game.tscn"),
+	preload("res://juggling/scene/juggling.tscn")
 ]
 
 func _ready():
 	gold_counter.set_gold(0)
-	load_game(0)
+	load_game(1)
 	
 func load_game(index: int):
 	is_game_ended = false
