@@ -29,13 +29,13 @@ func set_difficulty(value):
 
 
 func _process(delta):
-	if burrowed_knifes == difficulty + 1 and play_time < total_play_time:
+	if !finished and burrowed_knifes == difficulty + 1 and play_time < total_play_time:
 		finished = true
 		get_parent().end_game(false)
 		get_child(1).paused = true
 		
 	play_time += delta
-	if play_time >= total_play_time and burrowed_knifes < difficulty + 1:
+	if !finished and play_time >= total_play_time and burrowed_knifes < difficulty + 1:
 		finished = true
 		get_parent().end_game(true)
 		get_child(1).paused = true
