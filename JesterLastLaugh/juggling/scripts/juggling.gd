@@ -7,7 +7,6 @@ func _ready():
 	for i in 3-difficulty:
 		var knife_node = get_child(3+i)
 		remove_child(knife_node)
-	pass # Replace with function body.
 
 func start():
 	get_child(1).paused = false
@@ -20,3 +19,4 @@ func stop():
 	for i in 3-difficulty:
 		var knife_node = get_child(3+i).freeze_knife()
 	pass
+

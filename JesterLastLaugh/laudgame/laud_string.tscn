@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccslox2e8c5ge"]
 
-[ext_resource type="Script" path="res://laudgame/laud_string.gd" id="1_xysgp"]
+[ext_resource type="Script" path="res://laudgame/scripts/laud_string.gd" id="1_gfp0e"]
 [ext_resource type="Texture2D" uid="uid://cpxhjpf1415se" path="res://laudgame/assets/textures/string_off.png" id="2_vovpl"]
-[ext_resource type="Script" path="res://laudgame/SpawnPoint.gd" id="3_u0kmq"]
+[ext_resource type="Script" path="res://laudgame/scripts/SpawnPoint.gd" id="3_te2kq"]
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="4_b4n6p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63p56"]
@@ -14,7 +14,7 @@ font_size = 13
 font_color = Color(0.65098, 0.588235, 0.243137, 1)
 
 [node name="laud_string" type="Node2D"]
-script = ExtResource("1_xysgp")
+script = ExtResource("1_gfp0e")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -34,7 +34,7 @@ shape = SubResource("CircleShape2D_63p56")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -152)
-script = ExtResource("3_u0kmq")
+script = ExtResource("3_te2kq")
 
 [node name="Timer" type="Timer" parent="SpawnPoint"]
 autostart = true
