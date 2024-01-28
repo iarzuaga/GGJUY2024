@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfmw0mlgvoo06"]
+[gd_scene load_steps=9 format=3 uid="uid://cfmw0mlgvoo06"]
 
 [ext_resource type="Script" path="res://Osu/Scripts/Circle.gd" id="1_3mpmb"]
 [ext_resource type="Texture2D" uid="uid://y5cbt2ggpyu1" path="res://Osu/Assets/osu_circle.png" id="1_w4rg1"]
 [ext_resource type="Script" path="res://Osu/Scripts/AnimatedSprite2D.gd" id="3_v0ixv"]
+[ext_resource type="AudioStream" uid="uid://c3r1t1vtip1j2" path="res://Osu/Assets/Marbles_Clicking_Together_2.mp3" id="4_6tlb6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0gxk"]
 atlas = ExtResource("1_w4rg1")
@@ -51,5 +52,8 @@ position = Vector2(-0.854701, -0.444448)
 shape = SubResource("CircleShape2D_lcgxp")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6tlb6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

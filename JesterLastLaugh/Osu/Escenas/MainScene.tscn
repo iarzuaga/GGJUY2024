@@ -10,10 +10,10 @@ script = ExtResource("1_0mwrj")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Jester" parent="." instance=ExtResource("3_vsym7")]
-position = Vector2(795, 538)
+position = Vector2(804, 537)
 
 [node name="Cordinate_top_left" type="Node2D" parent="."]
-position = Vector2(201, 10)
+position = Vector2(230, 10)
 scale = Vector2(-202.532, -322.559)
 
 [node name="Cordinate_top_right" type="Node2D" parent="."]
@@ -23,7 +23,7 @@ position = Vector2(492, 10)
 position = Vector2(492, 219)
 
 [node name="Cordinate_botton_left" type="Node2D" parent="."]
-position = Vector2(201, 219)
+position = Vector2(230, 219)
 
 [node name="ScoreCount" parent="." instance=ExtResource("4_vstty")]
 

@@ -25,6 +25,9 @@ var circle_died: int
 var pocketed_circles: int
 
 func start():
+	timer.connect("timeout",_spawn_circles)
+	timer.wait_time = time_spawn_circle
+	timer.start()
 	pass
 
 func _ready():
@@ -35,15 +38,10 @@ func _ready():
 	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
-	set_difficulty(1)
+	set_difficulty(difficulty_game)
 	add_child(score)
 	score.score_per_circle = score_per_circle
-	_lets_begin()
-
-func _lets_begin():
-	timer.connect("timeout",_spawn_circles)
-	timer.wait_time = time_spawn_circle
-	timer.start()
+	
 
 func _spawn_circles():
 	_control_win_defeat()
@@ -56,12 +54,11 @@ func _spawn_circles():
 	add_child(Circle)
 	circle_number = circle_number + 1
 
-func _score_count():
-	actual_score = score._get_score()
+func _score_count() -> int:
+	return score._get_score()
 
 func _add_gold():
-	get_parent().add_gold(round(actual_score / 2))
-	print(round(actual_score / 2))
+	get_parent().add_gold(round(_score_count() / 2))
 
 func set_difficulty(difficulty : int):
 	difficulty_game = difficulty
@@ -100,15 +97,9 @@ func _set_difficulty_times():
 
 func _control_win_defeat():
 	if circle_died >= margin_one and circle_died <= circle_died and pocketed_circles + circle_died == circle_total_win:
-		print("GANASTE")
-		_score_count()
-		print(actual_score)
 		get_tree().paused = true
 		get_parent().end_game(true)
 	elif circle_died == margin_two + 1:
-		print("PERDISTE")
-		_score_count()
-		print(actual_score)
 		get_tree().paused = true
 		get_parent().end_game(false)
 
@@ -116,4 +107,5 @@ func _count_died_circles():
 	circle_died = circle_died + 1
 
 func _count_pocketed_circles():
+	_add_gold()
 	pocketed_circles = pocketed_circles + 1
