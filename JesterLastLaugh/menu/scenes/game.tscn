@@ -36,6 +36,10 @@ texture = ExtResource("3_b37jm")
 centered = false
 script = ExtResource("4_d040y")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/King"]
+position = Vector2(-143.915, -154.576)
+scale = Vector2(2.6651, 2.6651)
+
 [node name="Control" type="Control" parent="Camera2D"]
 z_index = 1
 layout_mode = 3
@@ -80,5 +84,3 @@ script = ExtResource("9_hsduj")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

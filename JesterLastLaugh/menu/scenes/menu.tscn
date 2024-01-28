@@ -89,3 +89,4 @@ autoplay = true
 
 [connection signal="pressed" from="MenuContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuContainer/Exit" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MenuContainer/Exit" to="." method="_on_exit_pressed"]

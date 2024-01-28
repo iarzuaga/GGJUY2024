@@ -39,7 +39,7 @@ func play_game():
 	
 	played.append(index)
 	
-	if len(played) >= 4:
+	if len(played) >= len(games):
 		played = []
 	
 	load_game(index)
@@ -91,16 +91,16 @@ func end_game(winned: bool):
 	is_game_ended = true
 	
 	var state: int = -1
-	king.set_state(state)
-	
 	if is_game_winned:
 		state = 1
 	else:
 		try_count += 1
 		if try_count >= 2:
+			king.set_state(state)
 			call_in(start_guillotine, 5.0)
 			return
 	
+	king.set_state(state)
 	call_in(start_change_scene, 3.0)
 
 func start_guillotine():
