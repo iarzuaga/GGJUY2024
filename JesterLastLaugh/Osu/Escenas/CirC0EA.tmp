@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfmw0mlgvoo06"]
+
+[ext_resource type="Script" path="res://Osu/Scripts/Circle.gd" id="1_3mpmb"]
+[ext_resource type="Texture2D" uid="uid://y5cbt2ggpyu1" path="res://Osu/Assets/osu_circle.png" id="1_w4rg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0gxk"]
+atlas = ExtResource("1_w4rg1")
+region = Rect2(0, 0, 14, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_577dx"]
+atlas = ExtResource("1_w4rg1")
+region = Rect2(14, 0, 14, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdrio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0gxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_577dx")
+}],
+"loop": true,
+"name": &"Circle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcgxp"]
+radius = 16.6726
+
+[node name="Circle" type="CharacterBody2D"]
+position = Vector2(418, 94)
+scale = Vector2(2.34, 2.25)
+script = ExtResource("1_3mpmb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_gdrio")
+animation = &"Circle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lcgxp")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5bwfxdvu3nut"]
+
+[ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="1_h1t5q"]
+[ext_resource type="Script" path="res://gold_counter/gold_counter.gd" id="1_vl1qr"]
+[ext_resource type="Texture2D" uid="uid://0ivkxsqsjukh" path="res://gold_counter/assets/gold_counter.png" id="1_yi5l7"]
+[ext_resource type="Texture2D" uid="uid://bhocf7lr1mbgj" path="res://gold_counter/assets/gold.png" id="2_7gh68"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ialve"]
+font = ExtResource("1_h1t5q")
+font_size = 13
+font_color = Color(0.807843, 0.847059, 0.498039, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GoldCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vl1qr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 65.0
+offset_bottom = 27.0
+texture = ExtResource("1_yi5l7")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 19.0
+offset_bottom = 22.0
+texture = ExtResource("2_7gh68")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 57.0
+offset_bottom = 25.0
+text = "999999"
+label_settings = SubResource("LabelSettings_ialve")

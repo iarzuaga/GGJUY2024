@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccslox2e8c5ge"]
+
+[ext_resource type="Script" path="res://laudgame/laud_string.gd" id="1_xysgp"]
+[ext_resource type="Texture2D" uid="uid://cpxhjpf1415se" path="res://laudgame/string_off.png" id="2_jaxtu"]
+[ext_resource type="Script" path="res://laudgame/SpawnPoint.gd" id="3_u0kmq"]
+[ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="4_b4n6p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63p56"]
+radius = 9.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ch6bu"]
+font = ExtResource("4_b4n6p")
+font_size = 13
+font_color = Color(0.65098, 0.588235, 0.243137, 1)
+
+[node name="laud_string" type="Node2D"]
+script = ExtResource("1_xysgp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -21)
+texture = ExtResource("2_jaxtu")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -4)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_63p56")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -152)
+script = ExtResource("3_u0kmq")
+
+[node name="Timer" type="Timer" parent="SpawnPoint"]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -7.0
+offset_right = 4.0
+offset_bottom = 8.0
+text = "h"
+label_settings = SubResource("LabelSettings_ch6bu")

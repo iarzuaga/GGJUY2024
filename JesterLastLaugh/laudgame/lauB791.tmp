@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1sxbjk1v7g7"]
+
+[ext_resource type="PackedScene" uid="uid://ccslox2e8c5ge" path="res://laudgame/laud_string.tscn" id="1_j32el"]
+[ext_resource type="Script" path="res://laud.gd" id="1_tftv6"]
+
+[node name="Laud" type="Node2D"]
+script = ExtResource("1_tftv6")
+
+[node name="Laud0" parent="." instance=ExtResource("1_j32el")]
+position = Vector2(464, 558)
+action = "laud_0"
+
+[node name="Laud1" parent="." instance=ExtResource("1_j32el")]
+position = Vector2(485, 558)
+action = "laud_1"
+
+[node name="Laud2" parent="." instance=ExtResource("1_j32el")]
+position = Vector2(505, 558)
+action = "laud_2"
+
+[node name="Laud3" parent="." instance=ExtResource("1_j32el")]
+position = Vector2(526, 558)
+action = "laud_3"
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://br0w8t3q7yjjp"]
+
+[ext_resource type="Script" path="res://pause.gd" id="1_pe51t"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_pe51t")
+
+[node name="Resume" type="Button" parent="PauseContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Exit" type="Button" parent="PauseContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[connection signal="pressed" from="PauseContainer/Resume" to="PauseContainer" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseContainer/Exit" to="PauseContainer" method="_on_exit_pressed"]
