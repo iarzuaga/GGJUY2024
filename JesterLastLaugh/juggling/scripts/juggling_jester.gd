@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 const JUMP_VELOCITY = -100.0
-
+var paused = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var inside_body = false
@@ -12,6 +12,7 @@ var knife_force = 0
 
 func _physics_process(delta):
 	# Add the gravity.
+	if paused : return
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -34,7 +35,7 @@ func _physics_process(delta):
 func _on_regular_body_entered(body):
 	inside_body = true
 	knife = body
-	knife_force = -100
+	knife_force = 8
 
 func _process(delta):
 	if inside_body and Input.is_action_just_pressed("juggle"):
@@ -42,8 +43,7 @@ func _process(delta):
 
 func _on_regular_body_exited(body):
 	inside_body = false
-
-
+	
 func _on_good_body_exited(body):
 	inside_body = false
 
@@ -51,5 +51,5 @@ func _on_good_body_exited(body):
 func _on_good_body_entered(body):
 	inside_body = true
 	knife = body
-	knife_force = -200
+	knife_force = 12
 

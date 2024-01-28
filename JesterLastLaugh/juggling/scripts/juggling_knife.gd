@@ -5,12 +5,16 @@ var velocity = Vector2(0,0)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animated_sprite = $AnimatedSprite2D
 
+func calculate_gravity(throw_force):
+	return sqrt(gravity * throw_force)
+
 func _ready():
-	velocity = Vector2(0, jump_velocity);
+	freeze = true
 
 func throw(force):
 	sleeping = true
-	apply_central_impulse(Vector2(0, force));
+	var jump = -1 * calculate_gravity(force)
+	apply_central_impulse(Vector2(0, jump));
 	_animated_sprite.play("spin")
 	
 
@@ -18,3 +22,10 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(Vector2(0,0))
 	if collision_info:
 		_animated_sprite.play("default")
+
+func resume_knife():
+	freeze = false
+	apply_central_impulse(Vector2(0, -100));
+	
+func freeze_knife():
+	freeze = true

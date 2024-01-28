@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2ovnhjoy6pdl"]
+[gd_scene load_steps=5 format=3 uid="uid://blbilrwl3cehn"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_yyrxh"]
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="2_3u5as"]
