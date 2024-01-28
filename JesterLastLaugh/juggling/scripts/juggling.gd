@@ -19,4 +19,7 @@ func stop():
 	for i in 3-difficulty:
 		var knife_node = get_child(3+i).freeze_knife()
 	pass
+	
+func set_dificulty(value):
+	difficulty = value
 

@@ -26,30 +26,32 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play("run")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("default")
 
 	move_and_slide()
-
-func _on_regular_body_entered(body):
-	inside_body = true
-	knife = body
-	knife_force = 8
 
 func _process(delta):
 	if inside_body and Input.is_action_just_pressed("juggle"):
 		knife.throw(knife_force)
 
 func _on_regular_body_exited(body):
-	inside_body = false
+	if body.get_name().contains("Knife"): inside_body = false
 	
 func _on_good_body_exited(body):
-	inside_body = false
+	if body.get_name().contains("Knife"): inside_body = false
 
+
+func _on_regular_body_entered(body):
+	if body.get_name().contains("Knife"):
+		inside_body = true
+		knife = body
+		knife_force = 8
 
 func _on_good_body_entered(body):
-	inside_body = true
-	knife = body
-	knife_force = 12
+	if body.get_name().contains("Knife"):
+		inside_body = true
+		knife = body
+		knife_force = 12
 
