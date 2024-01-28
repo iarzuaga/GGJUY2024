@@ -1,36 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3w6g64na8v7p"]
+[gd_scene load_steps=6 format=3 uid="uid://b3w6g64na8v7p"]
 
-[ext_resource type="Texture2D" uid="uid://kluamwggc85m" path="res://Osu/Assets/asd.png" id="1_t5ecl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8nrb"]
-atlas = ExtResource("1_t5ecl")
-region = Rect2(0, 0, 116, 143)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2wq5h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8nrb")
-}],
-"loop": false,
-"name": &"Jester",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://cgc56of6ec5et" path="res://Osu/Assets/2.png" id="1_mdqke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unakn"]
 size = Vector2(11.0593, 21.7391)
 
+[sub_resource type="Animation" id="Animation_1cwng"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_bfjxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mbhn"]
+_data = {
+"RESET": SubResource("Animation_bfjxk"),
+"idle": SubResource("Animation_1cwng")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(808, 538)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-439, -282)
-scale = Vector2(0.35, 0.35)
-sprite_frames = SubResource("SpriteFrames_2wq5h")
-animation = &"Jester"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-438.88, -282)
 rotation = -3.14159
 scale = Vector2(3.776, -2.3)
 shape = SubResource("RectangleShape2D_unakn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-439, -282)
+scale = Vector2(0.359895, 0.369286)
+texture = ExtResource("1_mdqke")
+hframes = 6
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4mbhn")
+}
