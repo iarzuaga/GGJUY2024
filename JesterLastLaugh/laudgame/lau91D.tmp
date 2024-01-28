@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp1sxbjk1v7g7"]
 
 [ext_resource type="PackedScene" uid="uid://ccslox2e8c5ge" path="res://laudgame/laud_string.tscn" id="1_j32el"]
-[ext_resource type="Script" path="res://laudgame/scripts/laud.gd" id="1_majgd"]
+[ext_resource type="Script" path="res://laud.gd" id="1_tftv6"]
 
 [node name="Laud" type="Node2D"]
-script = ExtResource("1_majgd")
+script = ExtResource("1_tftv6")
 
 [node name="Laud0" parent="." instance=ExtResource("1_j32el")]
 position = Vector2(-45, 134)
@@ -29,4 +29,3 @@ letter = "j"
 sound = "res://laudgame/assets/sounds/Note_4.wav"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.5

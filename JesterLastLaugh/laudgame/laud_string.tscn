@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccslox2e8c5ge"]
 
-[ext_resource type="Script" path="res://laudgame/laud_string.gd" id="1_xysgp"]
-[ext_resource type="Texture2D" uid="uid://cpxhjpf1415se" path="res://laudgame/string_off.png" id="2_jaxtu"]
-[ext_resource type="Script" path="res://laudgame/SpawnPoint.gd" id="3_u0kmq"]
+[ext_resource type="Script" path="res://laudgame/scripts/laud_string.gd" id="1_gfp0e"]
+[ext_resource type="Texture2D" uid="uid://cpxhjpf1415se" path="res://laudgame/assets/textures/string_off.png" id="2_vovpl"]
+[ext_resource type="Script" path="res://laudgame/scripts/SpawnPoint.gd" id="3_te2kq"]
 [ext_resource type="FontFile" uid="uid://cctxw0jp5cx3f" path="res://fonts/blasphemous.otf" id="4_b4n6p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63p56"]
@@ -14,7 +14,7 @@ font_size = 13
 font_color = Color(0.65098, 0.588235, 0.243137, 1)
 
 [node name="laud_string" type="Node2D"]
-script = ExtResource("1_xysgp")
+script = ExtResource("1_gfp0e")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -23,7 +23,7 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -21)
-texture = ExtResource("2_jaxtu")
+texture = ExtResource("2_vovpl")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -4)
@@ -34,7 +34,7 @@ shape = SubResource("CircleShape2D_63p56")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -152)
-script = ExtResource("3_u0kmq")
+script = ExtResource("3_te2kq")
 
 [node name="Timer" type="Timer" parent="SpawnPoint"]
 autostart = true
@@ -47,3 +47,13 @@ offset_right = 4.0
 offset_bottom = 8.0
 text = "h"
 label_settings = SubResource("LabelSettings_ch6bu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -11.0
+offset_top = -388.0
+offset_right = 11.0
+offset_bottom = 23.0
+color = Color(1, 1, 1, 0.164706)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

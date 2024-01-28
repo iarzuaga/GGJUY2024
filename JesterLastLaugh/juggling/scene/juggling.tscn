@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://blk8uh6kvjey7"]
+[gd_scene load_steps=7 format=3 uid="uid://blk8uh6kvjey7"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling.gd" id="1_5wkml"]
 [ext_resource type="PackedScene" uid="uid://ci0baj3fubwly" path="res://juggling/models/juggling_jester.tscn" id="2_udrno"]
 [ext_resource type="PackedScene" uid="uid://b4wr42uqlvyhq" path="res://juggling/models/juggling_knife.tscn" id="3_cydgv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq38s"]
+size = Vector2(20, 379)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bu1i5"]
+distance = 29.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fafvs"]
+size = Vector2(20, 389)
 
 [node name="Juggling" type="Node"]
 script = ExtResource("1_5wkml")
@@ -14,19 +21,33 @@ position = Vector2(373, 281)
 collision_layer = 3
 collision_mask = 3
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(133, -146)
+shape = SubResource("RectangleShape2D_iq38s")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, 1)
+position = Vector2(-1, 10)
 shape = SubResource("WorldBoundaryShape2D_bu1i5")
 
-[node name="JugglingJester" parent="." instance=ExtResource("2_udrno")]
-position = Vector2(253, 253)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-155, -150.5)
+shape = SubResource("RectangleShape2D_fafvs")
 
-[node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(370, 90)
+[node name="JugglingJester" parent="." instance=ExtResource("2_udrno")]
+position = Vector2(373, 236)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(2.3, 2.3)
 
+[node name="JugglingKnife" parent="." instance=ExtResource("3_cydgv")]
+position = Vector2(404, 130)
+
 [node name="JugglingKnife2" parent="." instance=ExtResource("3_cydgv")]
-position = Vector2(254, 19)
+position = Vector2(317, 62)
+
+[node name="JugglingKnife3" parent="." instance=ExtResource("3_cydgv")]
+position = Vector2(361, 100)
+
+[node name="JugglingKnife4" parent="." instance=ExtResource("3_cydgv")]
+position = Vector2(442, 160)

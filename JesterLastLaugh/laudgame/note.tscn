@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvxgvboivw5qy"]
 
-[ext_resource type="Script" path="res://laudgame/note.gd" id="1_t7qdg"]
-[ext_resource type="Texture2D" uid="uid://c3sdr2drsx3hy" path="res://laudgame/note.png" id="2_6fhkg"]
+[ext_resource type="Script" path="res://laudgame/scripts/note.gd" id="1_xmu4r"]
+[ext_resource type="Texture2D" uid="uid://c3sdr2drsx3hy" path="res://laudgame/assets/textures/note.png" id="2_fuoe3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1878"]
 radius = 4.0
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_t7qdg")
+script = ExtResource("1_xmu4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -1)
-texture = ExtResource("2_6fhkg")
+texture = ExtResource("2_fuoe3")
 
 [node name="Area2D" type="Area2D" parent="."]
 

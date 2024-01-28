@@ -1,20 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci0baj3fubwly"]
+[gd_scene load_steps=12 format=3 uid="uid://ci0baj3fubwly"]
 
 [ext_resource type="Script" path="res://juggling/scripts/juggling_jester.gd" id="1_o4otc"]
-[ext_resource type="Texture2D" uid="uid://r2bjnnoyvvcy" path="res://juggling/assets/jester.png" id="2_ablsw"]
+[ext_resource type="Texture2D" uid="uid://cj67wpomn8y7e" path="res://juggling/assets/jester_full.png" id="2_6bgtn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3lnkb"]
-atlas = ExtResource("2_ablsw")
-region = Rect2(116, 0, 116, 143)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bt00"]
+atlas = ExtResource("2_6bgtn")
+region = Rect2(0, 0, 118, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flya7"]
+atlas = ExtResource("2_6bgtn")
+region = Rect2(0, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu0lu"]
+atlas = ExtResource("2_6bgtn")
+region = Rect2(120, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut6ia"]
+atlas = ExtResource("2_6bgtn")
+region = Rect2(240, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eopf0"]
+atlas = ExtResource("2_6bgtn")
+region = Rect2(360, 0, 120, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_njmu7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3lnkb")
+"texture": SubResource("AtlasTexture_3bt00")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flya7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut6ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eopf0")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -22,22 +55,27 @@ animations = [{
 size = Vector2(50, 1.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41va8"]
-size = Vector2(6.86324, 1.28133)
+size = Vector2(7.0005, 1.76989)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js7cn"]
-size = Vector2(50, 7)
+size = Vector2(51, 8)
 
 [node name="JugglingJester" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_o4otc")
+speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 scale = Vector2(0.435, 0.393)
 sprite_frames = SubResource("SpriteFrames_njmu7")
+animation = &"run"
+frame = 2
+frame_progress = 0.98498
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_dmml7")
 
@@ -45,7 +83,7 @@ shape = SubResource("RectangleShape2D_dmml7")
 input_pickable = false
 
 [node name="RegularThrow" type="CollisionShape2D" parent="Regular"]
-position = Vector2(7.17465e-43, -8.42972)
+position = Vector2(0.499998, -10.5)
 scale = Vector2(7.28519, 8.47512)
 shape = SubResource("RectangleShape2D_41va8")
 
@@ -53,7 +91,7 @@ shape = SubResource("RectangleShape2D_41va8")
 input_pickable = false
 
 [node name="GoodThrow" type="CollisionShape2D" parent="Good"]
-position = Vector2(0, 0.5)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_js7cn")
 
 [connection signal="body_entered" from="Regular" to="." method="_on_regular_body_entered"]
