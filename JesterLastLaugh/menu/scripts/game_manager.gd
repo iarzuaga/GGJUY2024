@@ -17,13 +17,29 @@ var timer_to_start: float = 0
 @onready var games = [
 	preload("res://laudgame/note_game.tscn"),
 	preload("res://juggling/scene/juggling.tscn"),
-	preload("res://FruitNinja/Escenas/fruitNinja.tscn"),
+	#preload("res://FruitNinja/Escenas/fruitNinja.tscn"),
 	preload("res://Osu/Escenas/MainScene.tscn"),
 ]
+var played = []
+var index = 0
 
 func _ready():
 	gold_counter.set_gold(0)
-	load_game(3)
+	play_game()
+
+func play_game():
+	var rng = RandomNumberGenerator.new()
+	
+	index = rng.randi_range(0, len(games) - 1)
+	while index in played:
+		index = rng.randi_range(0, len(games) - 1)
+	
+	played.append(index)
+	
+	if len(played) >= 4:
+		played = []
+	
+	load_game(index)
 	
 func load_game(index: int):
 	if current_game_node:
@@ -73,10 +89,15 @@ func start_change_scene():
 	call_in(change_scene, 2.0)
 	
 func change_scene():
-	load_game(1)
+	play_game()
 	fade.unfade()
 	
 func call_in(f, time_in_sec: float):
+	if timer:
+		remove_child(timer)
+	
+	timer = Timer.new()
+	add_child(timer)
 	timer.connect("timeout", f)
 	timer.one_shot = true
 	timer.wait_time = time_in_sec
