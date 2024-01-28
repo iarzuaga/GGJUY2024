@@ -24,7 +24,7 @@ var circle_number: int
 var circle_died: int
 var pocketed_circles: int
 
-func play():
+func start():
 	pass
 
 func _ready():
@@ -104,13 +104,13 @@ func _control_win_defeat():
 		_score_count()
 		print(actual_score)
 		get_tree().paused = true
-		#get_parent().end_game(true)
+		get_parent().end_game(true)
 	elif circle_died == margin_two + 1:
 		print("PERDISTE")
 		_score_count()
 		print(actual_score)
 		get_tree().paused = true
-		#get_parent().end_game(false)
+		get_parent().end_game(false)
 
 func _count_died_circles():
 	circle_died = circle_died + 1
