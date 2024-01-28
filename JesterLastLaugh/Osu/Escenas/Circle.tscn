@@ -40,7 +40,7 @@ position = Vector2(418, 94)
 scale = Vector2(2.34, 2.25)
 script = ExtResource("1_3mpmb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="JesterIdle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_gdrio")
@@ -53,7 +53,7 @@ shape = SubResource("CircleShape2D_lcgxp")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ClickCircleSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6tlb6")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="JesterIdle" to="." method="_on_animated_sprite_2d_animation_finished"]

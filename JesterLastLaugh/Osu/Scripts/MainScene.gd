@@ -8,6 +8,7 @@ extends Node2D
 @onready var cordinate_top_right = $Cordinate_top_right
 @onready var cordinate_botton_left = $Cordinate_botton_left
 @onready var cordinate_botton_right = $Cordinate_botton_right
+@onready var menu_song = $MenuSong
 
 var _number_generator: RandomNumberGenerator
 var viewport_size: Vector2
@@ -31,6 +32,7 @@ func start():
 	pass
 
 func _ready():
+	menu_song.play()
 	playable_zone.append(cordinate_top_left.position)
 	playable_zone.append(cordinate_top_right.position)
 	playable_zone.append(cordinate_botton_left.position)
@@ -38,7 +40,8 @@ func _ready():
 	Jester.get_node("AnimationPlayer").play("idle")
 	_number_generator = RandomNumberGenerator.new()
 	_number_generator.randomize()
-	set_difficulty(difficulty_game)
+	set_difficulty(1)
+	
 	add_child(score)
 	score.score_per_circle = score_per_circle
 	
@@ -78,7 +81,7 @@ func _set_difficulty_times():
 			time_kill_circle = 1
 			margin_one = 5
 			margin_two = 9
-			circle_total_win = 27
+			circle_total_win = 5
 			score_per_circle = 3
 		2:
 			time_spawn_circle =  0.8
@@ -96,7 +99,7 @@ func _set_difficulty_times():
 			score_per_circle = 8
 
 func _control_win_defeat():
-	if circle_died >= margin_one and circle_died <= circle_died and pocketed_circles + circle_died == circle_total_win:
+	if circle_died <= circle_died and pocketed_circles + circle_died == circle_total_win:
 		get_tree().paused = true
 		get_parent().end_game(true)
 	elif circle_died == margin_two + 1:
